@@ -1,0 +1,83 @@
+@import './assets/styles/weui.wxss';
+
+page {
+  margin: 0;
+  background-color: #efeff4;
+  font-size: 16px;
+  font-family: -apple-system-font, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+/*= .page-hd =*/
+
+.page-hd {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 128rpx 0;
+  background-color: #22292c;
+}
+
+.page-hd-desc {
+  flex: 1;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/*= .page-bd =*/
+
+.page-bd {
+  padding-bottom: 80rpx;
+}
+
+/* .weui-grid */
+
+.weui-grid {
+  background-color: #fff;
+  border-right: 1px solid #efeff4;
+  border-bottom: 1px solid #efeff4;
+}
+
+.weui-grid_active {
+  background-color: #d9d9d9;
+}
+
+/* .weui-cell */
+
+.weui-cell_active {
+  background-color: #d9d9d9;
+}
+
+.weui-cell__hd_large_icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 20rpx 40rpx 20rpx 0;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.weui-cell__hd_icon {
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 20rpx;
+  vertical-align: middle;
+}
+
+.weui-cell__bd.with-badge {
+  display: flex;
+  align-items: center;
+}
+
+.weui-cell__bd.with-badge .weui-badge {
+  margin-left: 20rpx;
+  background-color: #f76260;
+}
+
+/* .weui-loadmore */
+
+.weui-loadmore__tips_in-line {
+  background-color: #efeff4;
+}

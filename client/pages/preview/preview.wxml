@@ -1,0 +1,17 @@
+<view class="preview-page">
+  <view class="preview-page-hd">
+    <view scroll-y class="note-image-view">
+      <image class="note-image" lazy-load mode="aspectFit" src="{{imgUrl}}" bindtap="noteImageTap"></image>
+    </view>
+  </view>
+  <view class="preview-page-ft">
+    <view class="toolbar">
+      <view class="toolbar-row">
+        <button class="toolbar-btn edit" hover-class="toolbar-btn-hover" bindtap="editButtonTap">
+          <image class="toolbar-btn-icon" src="/assets/images/edit.svg"></image>
+          <view class="toolbar-btn-label">修改</view>
+        </button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/preview/preview"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#22292c",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "科学笔记",
+    "backgroundColor": "#22292c",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false,
+    "onReachBottomDistance": 50
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

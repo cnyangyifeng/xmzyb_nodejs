@@ -1,0 +1,202 @@
+/* .home-page */
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-color: #22292c;
+  line-height: normal;
+}
+
+/*= .home-page-hd =*/
+
+.home-page-hd {
+  flex: none;
+  display: flex;
+}
+
+.note-image-view {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.note-image {
+  flex: none;
+  display: flex;
+  width: 750rpx;
+  height: 300rpx;
+}
+
+/*= .home-page-bd =*/
+
+.home-page-bd {
+  flex: none;
+  display: flex;
+}
+
+.note-editor {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.env {
+  flex: none;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  margin: 0 20rpx;
+  color: #666;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.note-textarea {
+  flex: none;
+  display: flex;
+  width: 710rpx;
+  height: 120px;
+  padding: 10px 20rpx;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.note-textarea-placeholder {
+  color: #999;
+}
+
+/*= .home-page-ft =*/
+
+.home-page-ft {
+  flex: 1;
+  display: flex;
+}
+
+.toolbar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 750rpx;
+  background-color: #333;
+}
+
+.toolbar-hd {
+  flex: none;
+  display: flex;
+  width: 750rpx;
+  height: 48px;
+}
+
+.toolbar-tabs {
+  flex: none;
+  display: flex;
+  width: 750rpx;
+}
+
+.toolbar-tabs-innner {
+  flex: 1;
+  display: flex;
+  width: 750rpx;
+  white-space: nowrap;
+}
+
+.toolbar-tab {
+  flex: none;
+  display: inline-block;
+  height: 48px;
+  padding: 0 16px;
+  border-right: 1rpx solid #666;
+  color: #999;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 48px;
+}
+
+.toolbar-tab-hover {
+  background-color: #22292c;
+}
+
+.toolbar-bd {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar-row {
+  flex: none;
+  display: flex;
+  width: 750rpx;
+  height: 48px;
+  border-top: 1rpx solid #666;
+}
+
+.toolbar-ft {
+  flex: none;
+  display: flex;
+  width: 750rpx;
+  height: 48px;
+}
+
+.toolbar-btn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-radius: 0;
+  border-right: 1rpx solid #666;
+  background-color: #333;
+  color: #999;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.toolbar-btn.refresh {
+  flex: 3;
+  border-right: 1rpx solid #10aeff;
+  background-color: #10aeff;
+  color: #fff;
+}
+
+.toolbar-btn.save {
+  flex: 2;
+  border-right: 1rpx solid #ffbe00;
+  background-color: #ffbe00;
+  color: #fff;
+}
+
+.toolbar-btn.send {
+  flex: 2;
+  border-right: 1rpx solid #f76260;
+  background-color: #f76260;
+  color: #fff;
+}
+
+.toolbar-btn-hover {
+  background-color: #22292c;
+}
+
+.toolbar-btn::after {
+  display: none;
+}
+
+.toolbar-btn-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.toolbar-btn-label {
+  margin: 0 4px;
+}
