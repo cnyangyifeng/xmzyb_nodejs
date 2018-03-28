@@ -6,7 +6,7 @@
   "window": {
     "navigationBarBackgroundColor": "#22292c",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "科学笔记",
+    "navigationBarTitleText": "科学公式",
     "backgroundColor": "#22292c",
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": false,

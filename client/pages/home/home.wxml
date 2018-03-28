@@ -1,7 +1,7 @@
 <view class="home-page">
   <view class="home-page-hd">
     <view scroll-y class="note-image-view">
-      <image class="note-image" lazy-load mode="aspectFit" src="{{noteImageData.imgUrl}}" bindtap="noteImageTap"></image>
+      <image class="note-image {{appMode}}" lazy-load mode="aspectFit" src="{{noteImageData.imgUrl}}" bindtap="noteImageTap"></image>
     </view>
   </view>
   <view class="home-page-bd">
@@ -12,44 +12,41 @@
     </view>
   </view>
   <view class="home-page-ft">
-    <view class="toolbar">
-      <view class="toolbar-hd">
-        <scroll-view scroll-x class="toolbar-tabs">
-          <view class="toolbar-tabs-innner">
-            <view class="toolbar-tab" hover-class="toolbar-tab-hover">常用常用常用</view>
-            <view class="toolbar-tab" hover-class="toolbar-tab-hover">常用</view>
-            <view class="toolbar-tab" hover-class="toolbar-tab-hover">常用</view>
-            <view class="toolbar-tab" hover-class="toolbar-tab-hover">常用</view>
-            <view class="toolbar-tab" hover-class="toolbar-tab-hover">常用</view>
-            <view class="toolbar-tab" hover-class="toolbar-tab-hover">常用</view>
-            <view class="toolbar-tab" hover-class="toolbar-tab-hover">常用</view>
-            <view class="toolbar-tab" hover-class="toolbar-tab-hover">常用</view>
-            <view class="toolbar-tab" hover-class="toolbar-tab-hover">常用</view>
-          </view>
-        </scroll-view>
+    <view class="toolbar-hd">
+      <view class="toolbar-switch" bindtap="toolbarSwitchTap">
+        <image class="toolbar-btn-icon" src="/assets/images/{{appMode === 'preview'?'unfold.svg':'packup.svg'}}"></image>
       </view>
-      <scroll-view class="toolbar-bd" scroll-y>
-        <view class="toolbar-row">
-          <button class="toolbar-btn" hover-class="toolbar-btn-hover">
-            <image class="toolbar-btn-icon" src="/assets/images/tutorial.svg"></image>
-            <view class="toolbar-btn-label">教程</view>
-          </button>
+      <scroll-view scroll-x class="toolbar-tabs">
+        <view class="toolbar-tabs-innner">
+          <view wx:for="{{keyboards}}" wx:key="name" class="toolbar-tab" hover-class="toolbar-tab-hover">{{item.displayName}}</view>
         </view>
       </scroll-view>
-      <view class="toolbar-ft">
-        <button class="toolbar-btn save" bindtap="saveButtonTap">
-          <image class="toolbar-btn-icon" src="/assets/images/save.svg"></image>
-          <view class="toolbar-btn-label">保存</view>
-        </button>
-        <button class="toolbar-btn send" open-type="share">
-          <image class="toolbar-btn-icon" src="/assets/images/send.svg"></image>
-          <view class="toolbar-btn-label">转发</view>
-        </button>
-        <button class="toolbar-btn refresh" bindtap="refreshButtonTap">
-          <image class="toolbar-btn-icon" src="/assets/images/refresh.svg"></image>
-          <view class="toolbar-btn-label">刷新</view>
-        </button>
+    </view>
+    <scroll-view class="toolbar-bd {{appMode}}" scroll-y>
+      <view wx:for="{{keyboards[0].rows}}" wx:key="rowId" class="toolbar-row">
+        <block wx:for="{{item.keys}}" wx:key="value">
+          <view wx:if="{{item.keyType === 'placeholder'}}" class="toolbar-btn {{item.width}}"></view>
+          <view wx:elif="{{item.keyType === 'caps'}}" class="control-btn {{capsOn?'on':''}} {{item.width}}" bindtap="capsKeyTap">{{item.name}}</view>
+          <view wx:elif="{{item.keyType === 'del'}}" class="command-btn {{item.width}}" hover-class="command-btn-hover" bindtap="delKeyTap">{{item.name}}</view>
+          <view wx:elif="{{item.keyType === 'alphabet'}}" class="toolbar-btn {{item.width}}" hover-class="toolbar-btn-hover" bindtap="alphabetKeyTap">
+            <image class="toolbar-btn-icon" src="{{capsOn?item.capsIcon:item.icon}}"></image>
+          </view>
+          <view wx:else class="toolbar-btn {{item.width}}" hover-class="toolbar-btn-hover" bindtap="keyTap">
+            <image class="toolbar-btn-icon" src="{{item.icon}}"></image>
+          </view>
+        </block>
       </view>
+    </scroll-view>
+    <view class="actionbar">
+      <button class="actionbar-btn save" bindtap="saveviewTap">
+        <image class="actionbar-btn-icon" src="/assets/images/save.svg"></image>
+      </button>
+      <button class="actionbar-btn send" open-type="share">
+        <image class="actionbar-btn-icon" src="/assets/images/send.svg"></image>
+      </button>
+      <button class="actionbar-btn refresh" bindtap="refreshviewTap">
+        <image class="actionbar-btn-icon" src="/assets/images/refresh.svg"></image>
+      </button>
     </view>
   </view>
 </view>

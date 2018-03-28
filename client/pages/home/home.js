@@ -1,10 +1,14 @@
 const configs = require('../../config')
+const keyboards = require('../../services/keyboards')
 const loginService = require('../../services/loginService')
 const msgs = require('../../msg')
 const noteService = require('../../services/noteService')
 const qcloud = require('../../vendor/wafer2-client-sdk/index')
 const TunnelEvent = require('../../services/tunnelEvent')
 const Tutor = require('../../services/tutor')
+
+const APP_MODE_PREVIEW = 'preview'
+const APP_MODE_EDIT = 'edit'
 
 Page({
 
@@ -13,6 +17,9 @@ Page({
    */
 
   data: {
+
+    appMode: APP_MODE_PREVIEW,
+
     tutor: null, // 当前 tutor
 
     noteImageData: '', // 当前 note 的 image data
@@ -23,6 +30,11 @@ Page({
     editing: true, // 当前 noteTextarea 的 “编辑状态”
     focused: false, // 当前 noteTextarea 的 “焦点状态”
     indicator: 0, // 当前 noteTextarea 的光标位置
+
+    capsOn: false,
+
+    keyboards: {}
+
   },
 
   /* ================================================================================ */
@@ -39,6 +51,9 @@ Page({
         draft: options.note
       })
     }
+    this.setData({
+      keyboards: keyboards
+    })
   },
 
   /**
@@ -81,6 +96,16 @@ Page({
 
   noteImageTap: function () {
     console.log(`点击 noteImage`)
+    const appMode = this.data.appMode
+    if (appMode === APP_MODE_PREVIEW) {
+      this.setData({
+        appMode: APP_MODE_EDIT
+      })
+    } else if (appMode === APP_MODE_EDIT) {
+      this.setData({
+        appMode: APP_MODE_PREVIEW
+      })
+    }
   },
 
   /**
@@ -145,6 +170,26 @@ Page({
     console.log(`noteTextarea 输入完成：`, e.detail.value)
     // 发送 “LaTeX 渲染请求” 消息
     this.sendParseMessage()
+  },
+
+  /**
+   * 绑定事件：点击 capsKeyTap
+   */
+
+  capsKeyTap: function () {
+    console.log(`点击 capsKey`)
+    const capsOn = this.data.capsOn
+    this.setData({
+      capsOn: !capsOn
+    })
+  },
+
+  /**
+   * 绑定事件：点击 delButton
+   */
+
+  delButtonTap: function () {
+    console.log(`点击 delButton`)
   },
 
   /**
@@ -216,6 +261,24 @@ Page({
 
   toolbarSwitchTap: function () {
     console.log(`点击 toolbarSwitch`)
+    const appMode = this.data.appMode
+    if (appMode === APP_MODE_PREVIEW) {
+      this.setData({
+        appMode: APP_MODE_EDIT
+      })
+    } else if (appMode === APP_MODE_EDIT) {
+      this.setData({
+        appMode: APP_MODE_PREVIEW
+      })
+    }
+  },
+
+  /**
+   * 绑定事件：点击 key
+   */
+
+  keyTap: function () {
+    console.log(`点击 key`)
   },
 
   /* ================================================================================ */

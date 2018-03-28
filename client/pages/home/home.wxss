@@ -28,18 +28,25 @@
   flex: none;
   display: flex;
   width: 750rpx;
+}
+
+.note-image.preview {
+  height: 600rpx;
+}
+
+.note-image.edit {
   height: 300rpx;
 }
 
 /*= .home-page-bd =*/
 
 .home-page-bd {
-  flex: none;
+  flex: 1;
   display: flex;
 }
 
 .note-editor {
-  flex: none;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -56,10 +63,9 @@
 }
 
 .note-textarea {
-  flex: none;
+  flex: 1;
   display: flex;
   width: 710rpx;
-  height: 120px;
   padding: 10px 20rpx;
   color: #fff;
   font-size: 20px;
@@ -73,56 +79,75 @@
 /*= .home-page-ft =*/
 
 .home-page-ft {
-  flex: 1;
-  display: flex;
-}
-
-.toolbar {
-  flex: 1;
+  flex: none;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 750rpx;
-  background-color: #333;
 }
+
+/*== .toolbar-hd ==*/
 
 .toolbar-hd {
   flex: none;
   display: flex;
   width: 750rpx;
-  height: 48px;
+  height: 44px;
+}
+
+.toolbar-switch {
+  flex: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90rpx;
+  box-sizing: border-box;
+  border-right: 1rpx solid #666;
+  background-color: #333;
 }
 
 .toolbar-tabs {
   flex: none;
   display: flex;
-  width: 750rpx;
+  width: 660rpx;
+  background-color: #333;
 }
 
 .toolbar-tabs-innner {
   flex: 1;
   display: flex;
-  width: 750rpx;
+  width: 670rpx;
   white-space: nowrap;
 }
 
 .toolbar-tab {
   flex: none;
   display: inline-block;
-  height: 48px;
   padding: 0 16px;
+  box-sizing: border-box;
   border-right: 1rpx solid #666;
+  background-color: #333;
   color: #999;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
-  line-height: 48px;
+  line-height: 44px;
+}
+
+.toolbar-tab.on {
+  color: #09bb07;
+}
+
+.toolbar-tab:last-of-type {
+  border-right: none;
 }
 
 .toolbar-tab-hover {
   background-color: #22292c;
 }
+
+/*== .toolbar-bd ==*/
 
 .toolbar-bd {
   flex: 1;
@@ -130,23 +155,97 @@
   flex-direction: column;
 }
 
+.toolbar-bd.preview {
+  height: 0;
+}
+
+.toolbar-bd.edit {
+  height: 220px;
+}
+
 .toolbar-row {
   flex: none;
   display: flex;
   width: 750rpx;
-  height: 48px;
-  border-top: 1rpx solid #666;
+  height: 44px;
 }
 
-.toolbar-ft {
+.toolbar-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #efeff4;
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.toolbar-btn.one {
+  flex: 1;
+}
+
+.toolbar-btn.two {
+  flex: 2;
+}
+
+.toolbar-btn.three {
+  flex: 3;
+}
+
+.toolbar-btn-hover {
+  background-color: #fff;
+}
+
+.toolbar-btn-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.toolbar-btn-label {
+  margin: 0 4px;
+}
+
+.control-btn {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.control-btn.on {
+  color: #09bb07;
+}
+
+.command-btn {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.command-btn-hover {
+  background-color: #999;
+}
+
+/*== .actionbar ==*/
+
+.actionbar {
   flex: none;
   display: flex;
   width: 750rpx;
   height: 48px;
 }
 
-.toolbar-btn {
-  flex: 1;
+.actionbar-btn {
+  flex: 2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -154,49 +253,41 @@
   margin-right: 0 !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
+  box-sizing: border-box;
   border-radius: 0;
-  border-right: 1rpx solid #666;
-  background-color: #333;
-  color: #999;
-  font-size: 16px;
+  background-color: #efeff4;
+  color: #000;
+  font-size: 18px;
   font-weight: 600;
   line-height: normal;
 }
 
-.toolbar-btn.refresh {
-  flex: 3;
-  border-right: 1rpx solid #10aeff;
-  background-color: #10aeff;
-  color: #fff;
-}
-
-.toolbar-btn.save {
+.actionbar-btn.save {
   flex: 2;
   border-right: 1rpx solid #ffbe00;
   background-color: #ffbe00;
   color: #fff;
 }
 
-.toolbar-btn.send {
+.actionbar-btn.send {
   flex: 2;
   border-right: 1rpx solid #f76260;
   background-color: #f76260;
   color: #fff;
 }
 
-.toolbar-btn-hover {
-  background-color: #22292c;
+.actionbar-btn.refresh {
+  flex: 3;
+  border-right: 1rpx solid #10aeff;
+  background-color: #10aeff;
+  color: #fff;
 }
 
-.toolbar-btn::after {
+.actionbar-btn::after {
   display: none;
 }
 
-.toolbar-btn-icon {
-  width: 24px;
-  height: 24px;
-}
-
-.toolbar-btn-label {
-  margin: 0 4px;
+.actionbar-btn-icon {
+  width: 32px;
+  height: 32px;
 }
