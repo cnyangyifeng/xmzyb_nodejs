@@ -21,11 +21,11 @@ const configs = {
     char: 'utf8mb4'
   },
   coredb: {
-    host: 'gz-cdb-hy2472r9.sql.tencentcdb.com', // internet ip
-    port: 63055,
+    host: '10.186.29.31', // prod
+    port: 3306,
     user: 'root',
     db: 'xmzyb_core_db',
-    pass: '2017&xmzy',
+    pass: '2018^xmzy', // prod
     char: 'utf8mb4'
   },
   cos: {

@@ -1,6 +1,9 @@
+const coredb = require('../services/coredb')
+const moment = require('moment')
+const pngLaTeX = require('../services/pngLaTeX')
 const { tunnel } = require('../qcloud')
 const TunnelEvent = require('../services/tunnelEvent')
-const pngLaTeX = require('../services/pngLaTeX')
+const uuidGenerator = require('uuid/v4')
 
 /* ================================================================================ */
 
@@ -32,9 +35,19 @@ function onClose(tunnelId) {
 async function onMessage(tunnelId, type, content) {
   console.log(`[onMessage] =>`, { tunnelId, type, content })
   switch (type) {
-    case TunnelEvent.PARSE_NOTE_REQ:
-      const noteImageData = await pngLaTeX(content.note)
-      tunnel.broadcast([tunnelId], TunnelEvent.PARSE_NOTE_RES, noteImageData)
+    case TunnelEvent.PARSE_NOTE_TEXT_REQ:
+      const note = content.note
+      note.noteImageData = await pngLaTeX(note.noteText)
+      const result = {
+        noteId: uuidGenerator(),
+        noteText: note.noteText,
+        blocks: JSON.stringify(note.blocks),
+        cursorId: note.cursorId,
+        noteImageData: JSON.stringify(note.noteImageData),
+        createTime: moment().format('YYYY-MM-DD HH:mm:ss')
+      }
+      await coredb('note').insert(result)
+      tunnel.broadcast([tunnelId], TunnelEvent.PARSE_NOTE_TEXT_RES, result)
       break
     default:
       break

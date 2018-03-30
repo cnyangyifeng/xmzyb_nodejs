@@ -1,5 +1,7 @@
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
+const sizeOf = require('image-size')
+
 const noteUploader = require('../services/noteUploader')
 const shortid = require('shortid')
 
@@ -27,17 +29,19 @@ const shortid = require('shortid')
 module.exports = async note => {
   // 返回 Promise 对象
   console.log(`[pngLaTeX] note => ${note}`)
-  const cmd = `pnglatex -d 600 -e align* -f "${note}" -O -p amsfonts:amsmath:mhchem`
+  const cmd = `pnglatex -d 400 -e align* -f "${note}" -O -P 10 -p amsfonts:amsmath:mhchem`
   try {
     const { stdout } = await exec(cmd)
     if (stdout) {
       const tempImagePath = stdout.trim()
       console.log(`[pngLaTeX] stdout => ${tempImagePath}`)
+      const dimensions = sizeOf(tempImagePath)
       const { imgUrl } = await noteUploader(tempImagePath)
       const paths = tempImagePath.split('/')
       return {
         imgUrl: imgUrl,
-        tempFileName: paths[paths.length - 1]
+        tempFileName: paths[paths.length - 1],
+        dimensions: dimensions
       }
     }
   } catch (stderr) {

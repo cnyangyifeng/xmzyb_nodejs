@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "cos-nodejs-sdk-v5": "^2.3.5",
+    "image-size": "^0.6.2",
     "knex": "^0.14.4",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",

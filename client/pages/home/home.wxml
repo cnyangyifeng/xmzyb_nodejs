@@ -1,52 +1,61 @@
 <view class="home-page">
   <view class="home-page-hd">
-    <view scroll-y class="note-image-view">
-      <image class="note-image {{appMode}}" lazy-load mode="aspectFit" src="{{noteImageData.imgUrl}}" bindtap="noteImageTap"></image>
-    </view>
+    <scroll-view scroll-x scroll-y class="note-image-container {{appMode}}" bindtap="noteImageContainerTap">
+      <view class="note-image-view">
+        <image wx:if="{{note.noteImageData}}" class="note-image" lazy-load src="{{note.noteImageData.imgUrl}}" style="width:{{note.noteImageData.dimensions.width/2}}px;height:{{note.noteImageData.dimensions.height/2}}px"></image>
+        <image wx:else class="note-image" src="/assets/images/preview.png" style="width:240px;height:80px"></image>
+      </view>
+    </scroll-view>
   </view>
   <view class="home-page-bd">
-    <view class="note-editor">
+    <view class="note-workspace" bindtap="noteWorkspaceTap">
       <text class="env">LaTeX</text>
-      <textarea class="note-textarea" placeholder-class="note-textarea-placeholder" adjust-position="false" cursor-spacing="20" focus="{{focused}}" maxlength="-1" placeholder="E=mc^2" selection-start="{{indicator}}" selection-end="{{indicator}}" value="{{draft}}"
-        bindfocus="noteTextareaFocus" bindblur="noteTextareaBlur" bindinput="noteTextareaInput" bindconfirm="noteTextareaConfirm"></textarea>
+      <scroll-view class="note-editor" scroll-y>
+        <view class="note-content">
+          <block wx:for="{{note.blocks}}" wx:key="{{item.wxKey}}">
+            <view wx:if="{{item.blockType==='cursor'}}" class="cursor"></view>
+            <view wx:else class="block c-{{item.color}} bc-{{item.backgroundColor}}" data-block-id="{{index}}" bindtap="blockTap">{{item.value}}</view>
+          </block>
+        </view>
+      </scroll-view>
     </view>
   </view>
   <view class="home-page-ft">
     <view class="toolbar-hd">
       <view class="toolbar-switch" bindtap="toolbarSwitchTap">
-        <image class="toolbar-btn-icon" src="/assets/images/{{appMode === 'preview'?'unfold.svg':'packup.svg'}}"></image>
+        <image class="toolbar-btn-icon" src="/assets/images/{{appMode==='preview'?'unfold.svg':'packup.svg'}}"></image>
       </view>
       <scroll-view scroll-x class="toolbar-tabs">
         <view class="toolbar-tabs-innner">
-          <view wx:for="{{keyboards}}" wx:key="name" class="toolbar-tab" hover-class="toolbar-tab-hover">{{item.displayName}}</view>
+          <view wx:for="{{keyboards}}" wx:key="name" class="toolbar-tab {{index===keyboardId?'active':''}}" hover-class="toolbar-tab-hover" data-keyboard-id="{{index}}" bindtap="toolbarTabTap">{{item.displayName}}</view>
         </view>
       </scroll-view>
     </view>
     <scroll-view class="toolbar-bd {{appMode}}" scroll-y>
-      <view wx:for="{{keyboards[0].rows}}" wx:key="rowId" class="toolbar-row">
+      <view wx:for="{{keyboards[keyboardId].rows}}" wx:key="rowId" class="toolbar-row">
         <block wx:for="{{item.keys}}" wx:key="value">
-          <view wx:if="{{item.keyType === 'placeholder'}}" class="toolbar-btn {{item.width}}"></view>
-          <view wx:elif="{{item.keyType === 'caps'}}" class="control-btn {{capsOn?'on':''}} {{item.width}}" bindtap="capsKeyTap">{{item.name}}</view>
-          <view wx:elif="{{item.keyType === 'del'}}" class="command-btn {{item.width}}" hover-class="command-btn-hover" bindtap="delKeyTap">{{item.name}}</view>
-          <view wx:elif="{{item.keyType === 'alphabet'}}" class="toolbar-btn {{item.width}}" hover-class="toolbar-btn-hover" bindtap="alphabetKeyTap">
+          <view wx:if="{{item.keyType==='placeholder'}}" class="toolbar-btn {{item.width}}"></view>
+          <view wx:elif="{{item.keyType==='caps'}}" class="control-btn {{capsOn?'on':''}} {{item.width}}" bindtap="capsKeyTap">{{item.name}}</view>
+          <view wx:elif="{{item.keyType==='del'}}" class="command-btn {{item.width}}" hover-class="command-btn-hover" bindtap="delKeyTap">{{item.name}}</view>
+          <view wx:elif="{{item.keyType==='letter'}}" class="toolbar-btn {{item.width}}" hover-class="toolbar-btn-hover" data-key-type="{{item.keyType}}" data-value="{{item.value}}" bindtap="keyTap">
             <image class="toolbar-btn-icon" src="{{capsOn?item.capsIcon:item.icon}}"></image>
           </view>
-          <view wx:else class="toolbar-btn {{item.width}}" hover-class="toolbar-btn-hover" bindtap="keyTap">
+          <view wx:else class="toolbar-btn {{item.width}}" hover-class="toolbar-btn-hover" data-key-type="{{item.keyType}}" data-value="{{item.value}}" bindtap="keyTap">
             <image class="toolbar-btn-icon" src="{{item.icon}}"></image>
           </view>
         </block>
       </view>
     </scroll-view>
     <view class="actionbar">
-      <button class="actionbar-btn save" bindtap="saveviewTap">
-        <image class="actionbar-btn-icon" src="/assets/images/save.svg"></image>
+      <button class="actionbar-btn {{note.noteImageData?'save':'save-disabled'}}" hover-class="save-hover" bindtap="saveButtonTap">
+        <image class="actionbar-btn-icon" src="/assets/images/save{{note.noteImageData?'':'_disabled'}}.svg"></image>
       </button>
-      <button class="actionbar-btn send" open-type="share">
-        <image class="actionbar-btn-icon" src="/assets/images/send.svg"></image>
+      <button class="actionbar-btn {{note.noteImageData?'send':'send-disabled'}}" open-type="share">
+        <image class="actionbar-btn-icon" src="/assets/images/send{{note.noteImageData?'':'_disabled'}}.svg"></image>
       </button>
-      <button class="actionbar-btn refresh" bindtap="refreshviewTap">
-        <image class="actionbar-btn-icon" src="/assets/images/refresh.svg"></image>
-      </button>
+      <view class="actionbar-btn {{note.blocks.length>1?'refresh':'refresh-disabled'}}" hover-class="refresh-hover" bindtap="refreshButtonTap">
+        <image class="actionbar-btn-icon" src="/assets/images/refresh{{note.blocks.length>1?'':'_disabled'}}.svg"></image>
+      </view>
     </view>
   </view>
 </view>

@@ -19,7 +19,7 @@ var ensureLoggedIn = function () {
         title: msgs.login_processing_title,
         mask: true
       })
-      // 为了获取更多的用户信息，例如 hearts, praises
+      // 为了获取更多的用户数据库中存储的信息
       // 放弃 qcloud.login, 直接使用 qcloud.request
       qcloud.request({
         url: `${configs.weapp}/tutor`,
