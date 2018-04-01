@@ -29,7 +29,7 @@ const shortid = require('shortid')
 module.exports = async note => {
   // 返回 Promise 对象
   console.log(`[pngLaTeX] note => ${note}`)
-  const cmd = `pnglatex -d 400 -e align* -f "${note}" -O -P 10 -p amsfonts:amsmath:mhchem`
+  const cmd = `pnglatex -d 400 -f "${note}" -O -P 10`
   try {
     const { stdout } = await exec(cmd)
     if (stdout) {

@@ -5,6 +5,7 @@ const msgs = require('../../msg')
 const tunnelService = require('../../services/tunnelService')
 const qcloud = require('../../vendor/wafer2-client-sdk/index')
 const TunnelEvent = require('../../services/tunnelEvent')
+const TunnelStatus = require('../../services/tunnelStatus')
 const Tutor = require('../../services/tutor')
 
 const APP_MODE_PREVIEW = 'preview'
@@ -32,13 +33,16 @@ Page({
     },
 
     cursor: { blockType: 'cursor' }, // 当前光标
+    stopBlockTapPropagation: false,
 
-    capsOn: false, // 当前字母输入大小写状态
+    capsOn: false, // 当前英文字母大小写输入状态
+    chineseOn: false, // 当前中文输入状态
 
     lastRefreshTime: new Date().getTime(), // 上次刷新时间
 
     keyboards: keyboards, // 当前键盘集
-    keyboardId: 0
+    keyboardId: 0,
+    currentKeyboard: ''
 
   },
 
@@ -86,21 +90,17 @@ Page({
 
   onShareAppMessage: function () {
     if (!this.data.note.noteImageData) {
-      console.log(`不执行转发小程序，本次操作结束`)
+      console.log(`不执行转发小程序`)
       return
     }
     if (this.data.appMode === APP_MODE_EDIT) {
       this.setData({
         appMode: APP_MODE_PREVIEW
       })
-      setTimeout(() => {
-        // 应用模式切换以后延时转发
-      }, 1000)
     }
     return {
       title: ' ',
       path: `pages/preview/preview?note_id=${this.data.note.noteId}`,
-      // imageUrl: this.data.note.noteImageData.imgUrl,
       success: res => {
         console.log(`转发成功`)
       },
@@ -118,6 +118,57 @@ Page({
 
   noteImageContainerTap: function () {
     console.log(`点击 noteImageContainer`)
+  },
+
+  /**
+   * 绑定事件：点击 noteWorkspace
+   */
+
+  noteWorkspaceTap: function () {
+    console.log(`点击 noteWorkspace`)
+    // 禁止 block 点击事件传播给 noteWorkspace
+    if (this.data.stopBlockTapPropagation) {
+      this.setData({
+        stopBlockTapPropagation: false
+      })
+      return
+    }
+    // 更新页面数据 appMode
+    const appMode = this.data.appMode
+    if (appMode === APP_MODE_PREVIEW) {
+      this.setData({
+        appMode: APP_MODE_EDIT
+      })
+    } else if (appMode === APP_MODE_EDIT) {
+      this.setData({
+        appMode: APP_MODE_PREVIEW
+      })
+    }
+  },
+
+  /**
+   * 绑定事件：点击 block
+   */
+
+  blockTap: function (e) {
+    console.log(`点击 block`)
+    // 在编辑模式下，禁止 block 点击事件传播给 noteWorkspace
+    if (this.data.appMode === APP_MODE_EDIT) {
+      this.setData({
+        stopBlockTapPropagation: true
+      })
+    }
+    // 查看 block
+    const blockId = e.currentTarget.dataset.blockId
+    this.viewBlock(blockId)
+  },
+
+  /**
+   * 绑定事件：点击 toolbarSwitch
+   */
+
+  toolbarSwitchTap: function () {
+    console.log(`点击 toolbarSwitch`)
     const appMode = this.data.appMode
     if (appMode === APP_MODE_PREVIEW) {
       // 更新页面数据 appMode
@@ -133,29 +184,16 @@ Page({
   },
 
   /**
-   * 绑定事件：点击 noteWorkspace
+   * 绑定事件：点击 toolbarPrefix
    */
 
-  noteWorkspaceTap: function () {
-    console.log(`点击 noteWorkspace`)
-    const appMode = this.data.appMode
-    if (appMode === APP_MODE_PREVIEW) {
-      // 更新页面数据 appMode
-      this.setData({
-        appMode: APP_MODE_EDIT
-      })
-    }
-  },
-
-  /**
-   * 绑定事件：点击 block
-   */
-
-  blockTap: function (e) {
-    console.log(`点击 block`)
-    // 查看 block
-    const blockId = e.currentTarget.dataset.blockId
-    this.viewBlock(blockId)
+  toolbarPrefixTap: function (e) {
+    console.log(`点击 toolbarPrefix`)
+    this.setData({
+      appMode: APP_MODE_EDIT,
+      keyboardId: 0,
+      currentKeyboard: keyboards[0].name
+    })
   },
 
   /**
@@ -167,7 +205,35 @@ Page({
     console.log(`点击 toolbarTab: `, keyboardId)
     this.setData({
       appMode: APP_MODE_EDIT,
-      keyboardId: keyboardId
+      keyboardId: keyboardId,
+      currentKeyboard: keyboards[keyboardId].name
+    })
+  },
+
+  /**
+   * 绑定事件：swiper 的 current 属性改变
+   */
+
+  keyboardSwiperChange: function (e) {
+    const current = e.detail.current
+    console.log(`current swiper item: ${current}`)
+    // 更新页面数据 keyboardId
+    this.setData({
+      keyboardId: current,
+      currentKeyboard: keyboards[current].name
+    })
+  },
+
+  /**
+   * 绑定事件：点击 chineseKeyTap
+   */
+
+  chineseKeyTap: function () {
+    console.log(`点击 chineseKey`)
+    const chineseOn = this.data.chineseOn
+    // 更新页面数据 chineseOn
+    this.setData({
+      chineseOn: !chineseOn
     })
   },
 
@@ -185,13 +251,28 @@ Page({
   },
 
   /**
-   * 绑定事件：点击 delKey
+   * 绑定事件：点击 commandKey
    */
 
-  delKeyTap: function () {
-    console.log(`点击 delKey`)
-    // 删除 block
-    this.delBlock()
+  commandKeyTap: function (e) {
+    // 组装 blocks
+    const name = e.currentTarget.dataset.name
+    const value = e.currentTarget.dataset.value
+    console.log(`点击 commandKey: `, name, value)
+    switch (name) {
+      case 'backslash':
+        this.buildBlocks(value, 'grey')
+        break
+      case 'lbrace':
+        this.buildBlocks(value, 'grey')
+        break
+      case 'rbrace':
+        this.buildBlocks(value, 'grey')
+        break
+      default:
+        this.buildBlocks(value, 'grey')
+        break
+    }
   },
 
   /**
@@ -199,12 +280,13 @@ Page({
    */
 
   keyTap: function (e) {
+    // 组装 blocks
     const value = e.currentTarget.dataset.value
     const keyType = e.currentTarget.dataset.keyType
     console.log(`点击 key: ${value}`)
     switch (keyType) {
       case 'greek':
-        this.buildBlocks(value, 'green')
+        this.buildBlocks(value, 'indigo')
         break
       case 'letter':
         const res = this.data.capsOn ? value.toUpperCase() : value
@@ -214,21 +296,11 @@ Page({
         this.buildBlocks(value, 'blue')
         break
       case 'operator':
-        this.buildBlocks(value, 'yellow')
+        this.buildBlocks(value, 'orange')
         break
       default:
         this.buildBlocks(value)
     }
-  },
-
-  /**
-   * 绑定事件：点击 refreshButton
-   */
-
-  refreshButtonTap: function () {
-    console.log(`点击 refreshButton`)
-    // 发送 “LaTeX 渲染请求” 信道消息
-    this.sendParseMessage()
   },
 
   /**
@@ -237,13 +309,13 @@ Page({
 
   saveButtonTap: function () {
     if (!this.data.note.noteImageData) {
-      console.log(`不执行保存图片到相册，本次操作结束`)
+      console.log(`不执行保存图片到相册`)
       return
     }
     console.log(`点击 saveButton`)
     // 下载 note image
     this.downloadImage().then(res => {
-      // 图片下载成功，则显示 “保存到相册” 弹框
+      // 图片下载成功，则显示 “保存到相册” 弹窗
       const tempFilePath = res.tempFilePath
       wx.showModal({
         title: msgs.confirm_save_note_image_title,
@@ -265,7 +337,6 @@ Page({
               // 图片保存失败
               fail: err => {
                 console.log(`图片保存失败：`, err)
-                console.log(err)
                 // 显示 “登录失败” 弹窗
                 switch (err.errMsg) {
                   // 用户拒绝授权 “保存到相册”，则显示 “保存失败” 弹窗
@@ -311,23 +382,23 @@ Page({
   },
 
   /**
-   * 绑定事件：点击 toolbarSwitch
+   * 绑定事件：点击 deleteButton
    */
 
-  toolbarSwitchTap: function () {
-    console.log(`点击 toolbarSwitch`)
-    const appMode = this.data.appMode
-    if (appMode === APP_MODE_PREVIEW) {
-      // 更新页面数据 appMode
-      this.setData({
-        appMode: APP_MODE_EDIT
-      })
-    } else if (appMode === APP_MODE_EDIT) {
-      // 更新页面数据 appMode
-      this.setData({
-        appMode: APP_MODE_PREVIEW
-      })
-    }
+  deleteButtonTap: function () {
+    console.log(`点击 deleteButton`)
+    // 删除 block
+    this.deleteBlock()
+  },
+
+  /**
+   * 绑定事件：点击 refreshButton
+   */
+
+  refreshButtonTap: function () {
+    console.log(`点击 refreshButton`)
+    // 发送 “LaTeX 渲染请求” 信道消息
+    this.sendParseMessage()
   },
 
   /* ================================================================================ */
@@ -395,6 +466,12 @@ Page({
         note: note
       })
     }
+    // 更新页面数据 appMode
+    if (this.data.appMode === APP_MODE_EDIT) {
+      this.setData({
+        appMode: APP_MODE_PREVIEW
+      })
+    }
     // 检查刷新时间，3s 之内不发送信道消息
     const refreshTime = new Date().getTime()
     const lastRefreshTime = this.data.lastRefreshTime
@@ -408,8 +485,8 @@ Page({
     }
     // 发送信道消息
     const app = getApp()
-    if (!this.data.tutor || !app.tunnel) {
-      console.log(`重新建立信道...本次操作已取消`)
+    if (!this.data.tutor || !app.tunnel || app.globalData.tunnelStatus === TunnelStatus.CLOSE) {
+      console.log(`重新建立信道...本次操作取消`)
       loginService.ensureLoggedIn().then(() => {
         // 从本地缓存中读取 tutor，更新页面数据 tutor
         this.setData({
@@ -417,6 +494,7 @@ Page({
         })
         // 启动信道服务
         tunnelService.parse(this, getApp())
+        return
       })
     }
     // 准备信道消息
@@ -505,7 +583,7 @@ Page({
    * 删除 block
    */
 
-  delBlock: function () {
+  deleteBlock: function () {
     const blocks = this.data.note.blocks
     let cursorId = this.data.note.cursorId
     // 取消 block 高亮效果

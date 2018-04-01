@@ -2,7 +2,7 @@
   "_args": [
     [
       "wafer2-client-sdk@1.1.1",
-      "/Users/yangyifeng/Workspace/weixin/xmzy_nodejs/client"
+      "/Users/yangyifeng/Workspace/weixin/xmzyb_nodejs/client"
     ]
   ],
   "_from": "wafer2-client-sdk@1.1.1",
@@ -26,7 +26,7 @@
   ],
   "_resolved": "http://registry.npm.taobao.org/wafer2-client-sdk/download/wafer2-client-sdk-1.1.1.tgz",
   "_spec": "1.1.1",
-  "_where": "/Users/yangyifeng/Workspace/weixin/xmzy_nodejs/client",
+  "_where": "/Users/yangyifeng/Workspace/weixin/xmzyb_nodejs/client",
   "author": {
     "name": "CFETeam"
   },

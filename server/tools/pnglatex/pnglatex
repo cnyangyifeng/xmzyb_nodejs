@@ -134,8 +134,10 @@ function generate {
     fi
 
     # PREFIX="\documentclass[${SIZE}pt]{article}$PACKAGES\pagestyle{empty}$HEADER\begin{document}$BEGINENV"
-    PREFIX="\documentclass[UTF8]{ctexart}$PACKAGES\pagestyle{empty}$HEADER\begin{document}$BEGINENV"
-    SUFFIX="$ENDENV\end{document}"
+    # SUFFIX="$ENDENV\end{document}"
+
+    PREFIX="\documentclass[UTF8]{ctexart}\usepackage{amsfonts}\usepackage{amsmath}\usepackage{amssymb}\usepackage{mhchem}\pagestyle{empty}\begin{document}\begin{equation*}\begin{split}"
+    SUFFIX="\end{split}\end{equation*}\end{document}"
 
     echo "$PREFIX $FORMULA $SUFFIX" > $TEXFILE
     latex -halt-on-error -interaction=nonstopmode -output-directory=$TMPDIR $TEXFILE | sed -n '/^!/,/^ /p' >&2

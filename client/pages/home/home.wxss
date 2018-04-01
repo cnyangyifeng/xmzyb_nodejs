@@ -30,7 +30,8 @@
 }
 
 .note-image-container.edit {
-  height: 300rpx;
+  /* height: 300rpx; */
+  display: none;
 }
 
 .note-image-view {
@@ -60,9 +61,9 @@
   flex: none;
   display: flex;
   align-items: center;
-  height: 30px;
+  height: 40px;
   margin: 0 20rpx;
-  color: #666;
+  color: #e0e0e0;
   font-size: 14px;
   font-weight: 600;
 }
@@ -78,8 +79,8 @@
   flex-wrap: wrap;
   padding: 10px 20rpx;
   color: #fff;
-  font-family: Courier New, Courier, monospace;
-  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -114,19 +115,35 @@
 }
 
 .block.bc-blue {
-  background-color: #10aeff;
+  background-color: #64b5f6;
 }
 
 .block.c-blue {
-  color: #10aeff;
+  color: #64b5f6;
+}
+
+.block.bc-brown {
+  background-color: #a1887f;
+}
+
+.block.c-brown {
+  color: #a1887f;
+}
+
+.block.bc-cyan {
+  background-color: #4dd0e1;
+}
+
+.block.c-cyan {
+  color: #4dd0e1;
 }
 
 .block.bc-green {
-  background-color: #09bb07;
+  background-color: #81c784;
 }
 
 .block.c-green {
-  color: #09bb07;
+  color: #81c784;
 }
 
 .block.bc-grey {
@@ -134,7 +151,15 @@
 }
 
 .block.c-grey {
-  color: #333;
+  color: #e0e0e0;
+}
+
+.block.bc-indigo {
+  background-color: #7986cb;
+}
+
+.block.c-indigo {
+  color: #7986cb;
 }
 
 .block.bc-none {
@@ -145,12 +170,44 @@
   color: #22292c;
 }
 
+.block.bc-orange {
+  background-color: #ffb74d;
+}
+
+.block.c-orange {
+  color: #ffb74d;
+}
+
+.block.bc-pink {
+  background-color: #f06292;
+}
+
+.block.c-pink {
+  color: #f06292;
+}
+
+.block.bc-purple {
+  background-color: #ba68c8;
+}
+
+.block.c-purple {
+  color: #ba68c8;
+}
+
 .block.bc-red {
-  background-color: #f76260;
+  background-color: #e57373;
 }
 
 .block.c-red {
-  color: #f76260;
+  color: #e57373;
+}
+
+.block.bc-teal {
+  background-color: #4db6ac;
+}
+
+.block.c-teal {
+  color: #4db6ac;
 }
 
 .block.bc-white {
@@ -159,14 +216,6 @@
 
 .block.c-white {
   color: #fff;
-}
-
-.block.bc-yellow {
-  background-color: #ffbe00;
-}
-
-.block.c-yellow {
-  color: #ffbe00;
 }
 
 /*= .home-page-ft =*/
@@ -200,17 +249,39 @@
   background-color: #333;
 }
 
+.toolbar-prefix {
+  flex: none;
+  display: inline-block;
+  width: 120rpx;
+  box-sizing: border-box;
+  border-right: 1rpx solid #666;
+  background-color: #333;
+  color: #e0e0e0;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 44px;
+}
+
+.toolbar-prefix.active {
+  color: #09bb07;
+}
+
+.toolbar-prefix-hover {
+  background-color: #22292c;
+}
+
 .toolbar-tabs {
   flex: none;
   display: flex;
-  width: 660rpx;
+  width: 540rpx;
   background-color: #333;
 }
 
 .toolbar-tabs-innner {
   flex: 1;
   display: flex;
-  width: 670rpx;
+  width: 540rpx;
   white-space: nowrap;
 }
 
@@ -221,7 +292,7 @@
   box-sizing: border-box;
   border-right: 1rpx solid #666;
   background-color: #333;
-  color: #666;
+  color: #e0e0e0;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
@@ -229,7 +300,11 @@
 }
 
 .toolbar-tab.active {
-  color: #fff;
+  color: #09bb07;
+}
+
+.toolbar-tab.feedback {
+  color: #ffbe00 !important;
 }
 
 .toolbar-tab:last-of-type {
@@ -245,14 +320,31 @@
 .toolbar-bd {
   flex: 1;
   display: flex;
-  flex-direction: column;
+  width: 750rpx;
+  background-color: #efeff4;
 }
 
 .toolbar-bd.preview {
-  height: 0;
+  display: none;
 }
 
 .toolbar-bd.edit {
+  height: 220px;
+}
+
+.toolbar-container {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  width: 750rpx;
+  background-color: #efeff4;
+}
+
+.toolbar-container.preview {
+  height: 0;
+}
+
+.toolbar-container.edit {
   height: 220px;
 }
 
@@ -290,23 +382,26 @@
 }
 
 .toolbar-btn-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.toolbar-btn-label {
-  margin: 0 4px;
+  width: 32px;
+  height: 32px;
 }
 
 .control-btn {
-  flex: 3;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #333;
-  color: #fff;
+  background-color: #22292c;
+  color: #e0e0e0;
   font-size: 18px;
   font-weight: 600;
+}
+
+.control-btn.two {
+  flex: 2;
+}
+
+.control-btn.three {
+  flex: 3;
 }
 
 .control-btn.on {
@@ -314,14 +409,21 @@
 }
 
 .command-btn {
-  flex: 3;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #333;
-  color: #fff;
+  background-color: #22292c;
+  color: #e0e0e0;
   font-size: 18px;
   font-weight: 600;
+}
+
+.command-btn.two {
+  flex: 2;
+}
+
+.command-btn.three {
+  flex: 3;
 }
 
 .command-btn-hover {
@@ -355,31 +457,30 @@
 }
 
 .actionbar-btn.save {
-  flex: 2;
+  flex: none;
+  width: 210rpx;
   border-right: 1rpx solid #ffbe00;
   background-color: #ffbe00;
 }
 
-.actionbar-btn.save-hover {
-  flex: 2;
-  border-right: 1rpx solid rgba(255, 190, 0, 0.8);
-  background-color: rgba(255, 190, 0, 0.8);
-}
-
 .actionbar-btn.save-disabled {
-  flex: 2;
+  flex: none;
+  width: 210rpx;
   border-right: 1rpx solid rgba(255, 190, 0, 0.4);
   background-color: rgba(255, 190, 0, 0.4);
 }
 
+.actionbar-btn.save-hover {
+  border-right: 1rpx solid rgba(255, 190, 0, 0.8);
+  background-color: rgba(255, 190, 0, 0.8);
+}
+
 .actionbar-btn.send {
-  flex: 2;
   border-right: 1rpx solid #f76260;
   background-color: #f76260;
 }
 
 .actionbar-btn.send-disabled {
-  flex: 2;
   border-right: 1rpx solid rgba(247, 98, 96, 0.4);
   background-color: rgba(247, 98, 96, 0.4);
 }
@@ -390,16 +491,32 @@
   background-color: #10aeff;
 }
 
+.actionbar-btn.refresh-disabled {
+  flex: 3;
+  border-right: 1rpx solid rgba(16, 174, 255, 0.4);
+  background-color: rgba(16, 174, 255, 0.4);
+}
+
 .actionbar-btn.refresh-hover {
   flex: 3;
   border-right: 1rpx solid rgba(16, 174, 255, 0.8);
   background-color: rgba(16, 174, 255, 0.8);
 }
 
-.actionbar-btn.refresh-disabled {
-  flex: 3;
-  border-right: 1rpx solid rgba(16, 174, 255, 0.4);
-  background-color: rgba(16, 174, 255, 0.4);
+.actionbar-btn.delete {
+  flex: 2;
+  border-right: 1rpx solid #09bb07;
+  background-color: #09bb07;
+}
+
+.actionbar-btn.delete.preview {
+  display: none;
+}
+
+.actionbar-btn.delete-hover {
+  flex: 2;
+  border-right: 1rpx solid rgba(9, 187, 7, 0.8);
+  background-color: rgba(9, 187, 7, 0.8);
 }
 
 .actionbar-btn::after {

@@ -4,54 +4,52 @@ const keyboards = [{
   rows: [{
     rowId: 1,
     keys: [{
+      keyType: "chinese",
+      name: "中",
+      width: "two"
+    }, {
       keyType: "operator",
       value: "+",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/plus.svg"
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/foremost/plus.svg"
     }, {
       keyType: "operator",
       value: "-",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/minus.svg"
-    }, {
-      keyType: "operator",
-      value: "\\times",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/times.svg"
-    }, {
-      keyType: "operator",
-      value: "\\div",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/div.svg"
-    }, {
-      keyType: "operator",
-      value: "/",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/slash.svg"
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/foremost/minus.svg"
     }, {
       keyType: "operator",
       value: "=",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/equal.svg"
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/foremost/equal.svg"
     }, {
       keyType: "operator",
       value: "(",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/left_round_bracket.svg"
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/foremost/lparen.svg"
     }, {
       keyType: "operator",
       value: ")",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/right_round_bracket.svg"
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/foremost/rparen.svg"
     }, {
-      keyType: "operator",
-      value: ".",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/dot.svg"
+      keyType: "command",
+      value: "^",
+      width: "two"
     }, {
-      keyType: "operator",
-      value: "\\\%",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/percent.svg"
+      keyType: "command",
+      value: "_",
+      width: "two"
+    }, {
+      keyType: "command",
+      name: "lbrace",
+      value: "{",
+      width: "two"
+    }, {
+      keyType: "command",
+      name: "rbrace",
+      value: "}",
+      width: "two"
     }]
   }, {
     rowId: 2,
@@ -281,8 +279,9 @@ const keyboards = [{
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lm.svg",
       capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/um.svg"
     }, {
-      keyType: "del",
-      name: "del",
+      keyType: "command",
+      name: "backslash",
+      value: "\\",
       width: "three"
     }]
   }]
@@ -376,7 +375,7 @@ const keyboards = [{
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/xi.svg"
     }, {
       keyType: "greek",
-      value: "\\omicron",
+      value: "o",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/omicron.svg"
     }, {
@@ -477,6 +476,11 @@ const keyboards = [{
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/uxi.svg"
     }, {
       keyType: "greek",
+      value: "O",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/uomicron.svg"
+    }, {
+      keyType: "greek",
       value: "\\Pi",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/upi.svg"
@@ -495,15 +499,15 @@ const keyboards = [{
       value: "\\Phi",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/uphi.svg"
-    }, {
-      keyType: "greek",
-      value: "\\Psi",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/upsi.svg"
     }]
   }, {
     rowId: 5,
     keys: [{
+      keyType: "greek",
+      value: "\\Psi",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/upsi.svg"
+    }, {
       keyType: "greek",
       value: "\\Omega",
       width: "two",
@@ -528,11 +532,328 @@ const keyboards = [{
       width: "two"
     }, {
       keyType: "placeholder",
+      width: "three"
+    }]
+  }]
+}, {
+  name: "set_theory",
+  displayName: "集合论",
+  rows: [{
+    rowId: 1,
+    keys: [{
+      keyType: "operator",
+      value: "\\varnothing",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/varnothing.svg"
+    }, {
+      keyType: "operator",
+      value: "\\{",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/lbrace.svg"
+    }, {
+      keyType: "operator",
+      value: "\\}",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rbrace.svg"
+    }, {
+      keyType: "operator",
+      value: "[",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/lbrack.svg"
+    }, {
+      keyType: "operator",
+      value: "]",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rbrack.svg"
+    }, {
+      keyType: "operator",
+      value: "(",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/lparen.svg"
+    }, {
+      keyType: "operator",
+      value: ")",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rparen.svg"
+    }, {
+      keyType: "operator",
+      value: "\\mid",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/mid.svg"
+    }, {
+      keyType: "operator",
+      value: ",",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/comma.svg"
+    }, {
+      keyType: "operator",
+      value: "\\cdots",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/cdots.svg"
+    }]
+  }, {
+    rowId: 2,
+    keys: [{
+      keyType: "operator",
+      value: "\\forall",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/forall.svg"
+    }, {
+      keyType: "operator",
+      value: "\\exists",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/exists.svg"
+    }, {
+      keyType: "operator",
+      value: "\\Rightarrow",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/urightarrow.svg"
+    }, {
+      keyType: "operator",
+      value: "\\Leftrightarrow",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/uleftrightarrow.svg"
+    }, {
+      keyType: "operator",
+      value: "\\in",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/in.svg"
+    }, {
+      keyType: "operator",
+      value: "\\ni",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/ni.svg"
+    }, {
+      keyType: "operator",
+      value: "\\notin",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/notin.svg"
+    }, {
+      keyType: "operator",
+      value: "\\not\\ni",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/not_ni.svg"
+    }, {
+      keyType: "operator",
+      value: "\\cup",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/cup.svg"
+    }, {
+      keyType: "operator",
+      value: "\\cap",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/cap.svg"
+    }]
+  }, {
+    rowId: 3,
+    keys: [{
+      keyType: "operator",
+      value: "\\because",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/because.svg"
+    }, {
+      keyType: "operator",
+      value: "\\therefore",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/therefore.svg"
+    }, {
+      keyType: "operator",
+      value: "<",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/less.svg"
+    }, {
+      keyType: "operator",
+      value: ">",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/gtr.svg"
+    }, {
+      keyType: "operator",
+      value: "\\leqslant",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/leqslant.svg"
+    }, {
+      keyType: "operator",
+      value: "\\geqslant",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/geqslant.svg"
+    }, {
+      keyType: "operator",
+      value: "\\neq",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/neq.svg"
+    }, {
+      keyType: "operator",
+      value: "=",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/equal.svg"
+    }, {
+      keyType: "operator",
+      value: "\\complement",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/complement.svg"
+    }, {
+      keyType: "placeholder",
+      width: "two"
+    }]
+  }, {
+    rowId: 4,
+    keys: [{
+      keyType: "operator",
+      value: "\\mathbb{N}",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/natural_numbers.svg"
+    }, {
+      keyType: "operator",
+      value: "\\mathbb{Z}",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/integers.svg"
+    }, {
+      keyType: "operator",
+      value: "\\mathbb{Q}",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rational_numbers.svg"
+    }, {
+      keyType: "operator",
+      value: "\\mathbb{R}",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/real_numbers.svg"
+    }, {
+      keyType: "operator",
+      value: "\\mathbb{C}",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/complex_numbers.svg"
+    }, {
+      keyType: "placeholder",
       width: "two"
     }, {
-      keyType: "del",
-      name: "del",
-      width: "three"
+      keyType: "placeholder",
+      width: "two"
+    }, {
+      keyType: "placeholder",
+      width: "two"
+    }, {
+      keyType: "placeholder",
+      width: "two"
+    }, {
+      keyType: "placeholder",
+      width: "two"
+    }]
+  }]
+}, {
+  name: "arithmetic and algebra",
+  displayName: "算数与代数",
+  rows: [{
+    rowId: 1,
+    keys: [{
+      keyType: "greek",
+      value: "\\alpha",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/alpha.svg"
+    }, {
+      keyType: "greek",
+      value: "\\beta",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/beta.svg"
+    }, {
+      keyType: "greek",
+      value: "\\gamma",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/gamma.svg"
+    }, {
+      keyType: "greek",
+      value: "\\delta",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/delta.svg"
+    }, {
+      keyType: "greek",
+      value: "\\epsilon",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/epsilon.svg"
+    }, {
+      keyType: "greek",
+      value: "\\varepsilon",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/varepsilon.svg"
+    }, {
+      keyType: "greek",
+      value: "\\zeta",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/zeta.svg"
+    }, {
+      keyType: "greek",
+      value: "\\eta",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/eta.svg"
+    }, {
+      keyType: "greek",
+      value: "\\theta",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/theta.svg"
+    }, {
+      keyType: "greek",
+      value: "\\vartheta",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/vartheta.svg"
+    }]
+  }]
+}, {
+  name: "calculus",
+  displayName: "微积分"
+}, {
+  name: "geometry and linear algebra",
+  displayName: "几何与线性代数"
+}, {
+  name: "stochastics",
+  displayName: "随机数学"
+}, {
+  name: "logic",
+  displayName: "数理逻辑"
+}, {
+  name: "feedback",
+  displayName: "联系作者",
+  rows: [{
+    rowId: 1,
+    keys: [{
+      keyType: "placeholder",
+      width: "two"
+    }]
+  }, {
+    rowId: 2,
+    keys: [{
+      keyType: "placeholder",
+      width: "one"
+    }, {
+      keyType: "navigator",
+      name: "问题反馈",
+      width: "two"
+    }, {
+      keyType: "placeholder",
+      width: "one"
+    }]
+  }, {
+    rowId: 3,
+    keys: [{
+      keyType: "placeholder",
+      width: "two"
+    }]
+  }, {
+    rowId: 4,
+    keys: [{
+      keyType: "placeholder",
+      width: "one"
+    }, {
+      keyType: "navigator",
+      name: "打赏作者 ￥9.9",
+      width: "two"
+    }, {
+      keyType: "placeholder",
+      width: "one"
+    }]
+  }, {
+    rowId: 5,
+    keys: [{
+      keyType: "placeholder",
+      width: "two"
     }]
   }]
 }]
