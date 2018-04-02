@@ -16,6 +16,9 @@ const msgs = {
   login_fail_title: `登录失败`,
   login_processing_title: `登录中`,
 
+  pay_success_title: `支付成功`,
+  pay_fail_title: `支付失败`,
+
   rendering: `生成中...`,
 
   request_fail_title: `请求失败`,

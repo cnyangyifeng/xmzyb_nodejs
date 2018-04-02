@@ -63,7 +63,7 @@
   align-items: center;
   height: 40px;
   margin: 0 20rpx;
-  color: #e0e0e0;
+  color: #fff;
   font-size: 14px;
   font-weight: 600;
 }
@@ -151,7 +151,7 @@
 }
 
 .block.c-grey {
-  color: #e0e0e0;
+  color: #fff;
 }
 
 .block.bc-indigo {
@@ -249,14 +249,19 @@
   background-color: #333;
 }
 
+.toolbar-switch-icon {
+  width: 32px;
+  height: 32px;
+}
+
 .toolbar-prefix {
   flex: none;
   display: inline-block;
   width: 120rpx;
   box-sizing: border-box;
-  border-right: 1rpx solid #666;
+  border-right: 2px solid #666;
   background-color: #333;
-  color: #e0e0e0;
+  color: #fff;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
@@ -289,10 +294,9 @@
   flex: none;
   display: inline-block;
   padding: 0 16px;
-  box-sizing: border-box;
-  border-right: 1rpx solid #666;
+  /* box-sizing: border-box; *//* border-right: 1rpx solid #666; */
   background-color: #333;
-  color: #e0e0e0;
+  color: #fff;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
@@ -303,7 +307,7 @@
   color: #09bb07;
 }
 
-.toolbar-tab.feedback {
+.toolbar-tab.contact {
   color: #ffbe00 !important;
 }
 
@@ -361,7 +365,7 @@
   align-items: center;
   background-color: #efeff4;
   color: #000;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -391,8 +395,8 @@
   justify-content: center;
   align-items: center;
   background-color: #22292c;
-  color: #e0e0e0;
-  font-size: 18px;
+  color: #fff;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -413,8 +417,8 @@
   justify-content: center;
   align-items: center;
   background-color: #22292c;
-  color: #e0e0e0;
-  font-size: 18px;
+  color: #fff;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -427,6 +431,35 @@
 }
 
 .command-btn-hover {
+  background-color: #999;
+}
+
+.navigator-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+  border-radius: 0;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.navigator-btn.two {
+  flex: 2;
+}
+
+.navigator-btn.three {
+  flex: 3;
+}
+
+.navigator-btn-hover {
   background-color: #999;
 }
 
@@ -451,7 +484,7 @@
   box-sizing: border-box;
   border-radius: 0;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   line-height: normal;
 }

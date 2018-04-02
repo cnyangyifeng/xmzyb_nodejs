@@ -27,6 +27,7 @@ async function getTutor(ctx, next) {
 /**
  * 创建一条默认的 tutor 数据
  */
+
 async function createDefaultTutor(tutorInfo) {
   const tutorId = tutorInfo.openId
   const createTime = moment().format('YYYY-MM-DD HH:mm:ss')

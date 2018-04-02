@@ -23,13 +23,13 @@
   <view class="home-page-ft">
     <view class="toolbar-hd">
       <view class="toolbar-switch" bindtap="toolbarSwitchTap">
-        <image class="toolbar-btn-icon" src="/assets/images/{{appMode==='preview'?'unfold.svg':'packup.svg'}}"></image>
+        <image class="toolbar-switch-icon" src="/assets/images/{{appMode==='preview'?'unfold.svg':'packup.svg'}}"></image>
       </view>
       <view class="toolbar-prefix {{keyboardId===0?'active':''}}" hover-class="toolbar-prefix-hover" bindtap="toolbarPrefixTap">{{keyboards[0].displayName}}</view>
       <scroll-view scroll-x class="toolbar-tabs" scroll-into-view="{{currentKeyboard}}">
         <view class="toolbar-tabs-innner">
           <block wx:for="{{keyboards}}" wx:key="name">
-            <view wx:if="{{index!==0}}" class="toolbar-tab {{keyboardId===index?'active':''}} {{item.name==='feedback'?'feedback':''}}" hover-class="toolbar-tab-hover" id="{{item.name}}" data-keyboard-id="{{index}}" bindtap="toolbarTabTap">{{item.displayName}}</view>
+            <view wx:if="{{index!==0}}" class="toolbar-tab {{keyboardId===index?'active':''}} {{item.name==='contact'?'contact':''}}" hover-class="toolbar-tab-hover" id="{{item.name}}" data-keyboard-id="{{index}}" bindtap="toolbarTabTap">{{item.displayName}}</view>
           </block>
         </view>
       </scroll-view>
@@ -42,8 +42,9 @@
               <view wx:if="{{item.keyType==='placeholder'}}" class="toolbar-btn {{item.width}}"></view>
               <view wx:elif="{{item.keyType==='caps'}}" class="control-btn {{capsOn?'on':''}} {{item.width}}" bindtap="capsKeyTap">{{item.name}}</view>
               <view wx:elif="{{item.keyType==='chinese'}}" class="control-btn {{chineseOn?'on':''}} {{item.width}}" bindtap="chineseKeyTap">{{item.name}}</view>
-              <view wx:elif="{{item.keyType==='navigator'}}" class="command-btn {{item.width}}" hover-class="command-btn-hover" bindtap="commandKeyTap">{{item.name}}</view>
               <view wx:elif="{{item.keyType==='command'}}" class="command-btn {{item.width}}" hover-class="command-btn-hover" data-name="{{item.name}}" data-value="{{item.value}}" bindtap="commandKeyTap">{{item.value}}</view>
+              <button wx:elif="{{item.keyType==='navigator'&&item.action==='feedback'}}" class="navigator-btn {{item.width}}" hover-class="navigator-btn-hover" open-type="contact">{{item.name}}</button>
+              <button wx:elif="{{item.keyType==='navigator'&&item.action==='donate'}}" class="navigator-btn {{item.width}}" hover-class="navigator-btn-hover" bindtap="donateButtonTap">{{item.name}}</button>
               <view wx:elif="{{item.keyType==='letter'}}" class="toolbar-btn {{item.width}}" hover-class="toolbar-btn-hover" data-key-type="{{item.keyType}}" data-value="{{item.value}}" bindtap="keyTap">
                 <image class="toolbar-btn-icon" src="{{capsOn?item.capsIcon:item.icon}}"></image>
               </view>

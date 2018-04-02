@@ -260,19 +260,19 @@ Page({
     const value = e.currentTarget.dataset.value
     console.log(`点击 commandKey: `, name, value)
     switch (name) {
-      case 'backslash':
-        this.buildBlocks(value, 'grey')
-        break
-      case 'lbrace':
-        this.buildBlocks(value, 'grey')
-        break
-      case 'rbrace':
-        this.buildBlocks(value, 'grey')
-        break
       default:
-        this.buildBlocks(value, 'grey')
+        this.buildBlocks(value, 'brown')
         break
     }
+  },
+
+  /**
+   * 绑定事件：点击 donateButton
+   */
+
+  donateButtonTap: function () {
+    console.log(`点击 donateButton`)
+    this.donate()
   },
 
   /**
@@ -404,7 +404,7 @@ Page({
   /* ================================================================================ */
 
   /**
-   * 获取初始 note
+   * 获取初始 note 数据
    */
 
   requestNote: function (noteId) {
@@ -423,7 +423,7 @@ Page({
       },
       fail: err => {
         // 失败，则显示失败消息提示框
-        console.log(`初始 note 获取失败`)
+        console.log(`获取初始 note 数据失败`)
         wx.showToast({
           title: msgs.request_fail_title,
           image: '/assets/images/warning.png',
@@ -434,6 +434,63 @@ Page({
         note.blocks = [this.data.cursor]
         this.setData({
           note: note
+        })
+      }
+    })
+  },
+
+  /**
+   * 打赏
+   */
+
+  donate: function () {
+    // 显示 loading 提示框
+    wx.showLoading({
+      title: msgs.login_processing_title,
+      mask: true
+    })
+    // 调用微信支付统一下单接口
+    qcloud.request({
+      url: `${configs.weapp}/donate/place_order`,
+      login: true,
+      success: res => {
+        console.log(`下单成功：`, res)
+        // 隐藏 loading 提示框
+        wx.hideLoading()
+        // 发起微信支付请求
+        const payData = res.data.data
+        wx.requestPayment({
+          'timeStamp': payData.timeStamp,
+          'nonceStr': payData.nonceStr,
+          'package': payData.package,
+          'signType': payData.signType,
+          'paySign': payData.paySign,
+          'success': res => {
+            console.log(`支付成功：`, res)
+            wx.showToast({
+              title: msgs.pay_success_title,
+              image: '/assets/images/right.png',
+              mask: true
+            })
+          },
+          'fail': err => {
+            console.log(`支付失败：`, err)
+            wx.showToast({
+              title: msgs.pay_fail_title,
+              image: '/assets/images/warning.png',
+              mask: true
+            })
+          }
+        })
+      },
+      fail: err => {
+        console.log(`下单失败：`, err)
+        // 隐藏 loading 提示框
+        wx.hideLoading()
+        wx.showToast({
+          title: msgs.request_fail_title,
+          image: '/assets/images/warning.png',
+          mask: true
         })
       }
     })

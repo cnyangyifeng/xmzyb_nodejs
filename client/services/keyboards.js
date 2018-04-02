@@ -1,6 +1,6 @@
 const keyboards = [{
   name: "regular",
-  displayName: "常规",
+  displayName: "键盘",
   rows: [{
     rowId: 1,
     keys: [{
@@ -287,7 +287,7 @@ const keyboards = [{
   }]
 }, {
   name: "greeks",
-  displayName: "希腊字母",
+  displayName: "希腊字符",
   rows: [{
     rowId: 1,
     keys: [{
@@ -537,7 +537,7 @@ const keyboards = [{
   }]
 }, {
   name: "set_theory",
-  displayName: "集合论",
+  displayName: "集合",
   rows: [{
     rowId: 1,
     keys: [{
@@ -740,77 +740,8 @@ const keyboards = [{
     }]
   }]
 }, {
-  name: "arithmetic and algebra",
-  displayName: "算数与代数",
-  rows: [{
-    rowId: 1,
-    keys: [{
-      keyType: "greek",
-      value: "\\alpha",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/alpha.svg"
-    }, {
-      keyType: "greek",
-      value: "\\beta",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/beta.svg"
-    }, {
-      keyType: "greek",
-      value: "\\gamma",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/gamma.svg"
-    }, {
-      keyType: "greek",
-      value: "\\delta",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/delta.svg"
-    }, {
-      keyType: "greek",
-      value: "\\epsilon",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/epsilon.svg"
-    }, {
-      keyType: "greek",
-      value: "\\varepsilon",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/varepsilon.svg"
-    }, {
-      keyType: "greek",
-      value: "\\zeta",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/zeta.svg"
-    }, {
-      keyType: "greek",
-      value: "\\eta",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/eta.svg"
-    }, {
-      keyType: "greek",
-      value: "\\theta",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/theta.svg"
-    }, {
-      keyType: "greek",
-      value: "\\vartheta",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/vartheta.svg"
-    }]
-  }]
-}, {
-  name: "calculus",
-  displayName: "微积分"
-}, {
-  name: "geometry and linear algebra",
-  displayName: "几何与线性代数"
-}, {
-  name: "stochastics",
-  displayName: "随机数学"
-}, {
-  name: "logic",
-  displayName: "数理逻辑"
-}, {
-  name: "feedback",
-  displayName: "联系作者",
+  name: "contact",
+  displayName: "联系我",
   rows: [{
     rowId: 1,
     keys: [{
@@ -825,6 +756,7 @@ const keyboards = [{
     }, {
       keyType: "navigator",
       name: "问题反馈",
+      action: "feedback",
       width: "two"
     }, {
       keyType: "placeholder",
@@ -843,7 +775,8 @@ const keyboards = [{
       width: "one"
     }, {
       keyType: "navigator",
-      name: "打赏作者 ￥9.9",
+      name: "打赏 ￥9.9",
+      action: "donate",
       width: "two"
     }, {
       keyType: "placeholder",
