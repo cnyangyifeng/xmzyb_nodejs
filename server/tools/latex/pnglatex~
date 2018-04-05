@@ -115,15 +115,13 @@ function generate {
         exit 1
     fi
 
-    TMPDIR=/tmp/pnglatex/download
+    TMPDIR=/tmp/me/mneri/pnglatex
 
     if [ ! -d $TMPDIR ]; then
         mkdir -p $TMPDIR
     fi
 
-    # tempfile 命令仅在 Debian/Ubuntu 版本上可用
-    # TEXFILE=$(tempfile -d $TMPDIR -p f -s .tex)
-    TEXFILE=$TMPDIR/note_$$.tex
+    TEXFILE=$(tempfile -d $TMPDIR -p f -s .tex)
 
     if [ "$ENVIRONMENT" = '$' ] || [ "$ENVIRONMENT" = '$$' ]; then
         BEGINENV=$ENVIRONMENT
@@ -133,11 +131,8 @@ function generate {
         ENDENV="\end{$ENVIRONMENT}"
     fi
 
-    # PREFIX="\documentclass[${SIZE}pt]{article}$PACKAGES\pagestyle{empty}$HEADER\begin{document}$BEGINENV"
-    # SUFFIX="$ENDENV\end{document}"
-
-    PREFIX="\documentclass[UTF8]{ctexart}\usepackage{amsfonts}\usepackage{amsmath}\usepackage{amssymb}\usepackage{mhchem}\pagestyle{empty}\begin{document}\begin{equation*}\begin{split}"
-    SUFFIX="\end{split}\end{equation*}\end{document}"
+    PREFIX="\documentclass[${SIZE}pt]{article}$PACKAGES\pagestyle{empty}$HEADER\begin{document}$BEGINENV"
+    SUFFIX="$ENDENV\end{document}"
 
     echo "$PREFIX $FORMULA $SUFFIX" > $TEXFILE
     latex -halt-on-error -interaction=nonstopmode -output-directory=$TMPDIR $TEXFILE | sed -n '/^!/,/^ /p' >&2
@@ -149,9 +144,7 @@ function generate {
 
     if [ ! "$PNGFILE" ]; then
         BNAME=$(basename $TEXFILE)
-        # 将 png 文件置于 tmp 目录下
-        # PNGFILE=$PWD/${BNAME%.tex}.png
-        PNGFILE=$TMPDIR/${BNAME%.tex}.png
+        PNGFILE=$PWD/${BNAME%.tex}.png
     fi
 
     if [ ! "$DPI" ]; then
@@ -386,6 +379,7 @@ function trim {
 # @return echoes the usage message.
 function usage {
     echo "pnglatex $VERSION - Write LaTeX formulas into PNG files."
+    echo "Copyright Massimo Neri <hello@mneri.me>."
     echo
     echo "List of options:"
     echo "  -b <color>       Set the background color."

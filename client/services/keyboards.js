@@ -4,51 +4,54 @@ const keyboards = [{
   rows: [{
     rowId: 1,
     keys: [{
-      keyType: "chinese",
-      name: "中",
+      keyType: "command",
+      name: "&",
+      value: "&",
       width: "two"
     }, {
-      keyType: "operator",
+      keyType: "command",
+      name: "+",
       value: "+",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/foremost/plus.svg"
-    }, {
-      keyType: "operator",
-      value: "-",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/foremost/minus.svg"
-    }, {
-      keyType: "operator",
-      value: "=",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/foremost/equal.svg"
-    }, {
-      keyType: "operator",
-      value: "(",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/foremost/lparen.svg"
-    }, {
-      keyType: "operator",
-      value: ")",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/operators/foremost/rparen.svg"
+      width: "two"
     }, {
       keyType: "command",
+      name: "-",
+      value: "-",
+      width: "two"
+    }, {
+      keyType: "command",
+      name: "=",
+      value: "=",
+      width: "two"
+    }, {
+      keyType: "command",
+      name: "^",
       value: "^",
       width: "two"
     }, {
       keyType: "command",
+      name: "_",
       value: "_",
       width: "two"
     }, {
       keyType: "command",
-      name: "lbrace",
+      name: "{",
       value: "{",
       width: "two"
     }, {
       keyType: "command",
-      name: "rbrace",
+      name: "}",
       value: "}",
+      width: "two"
+    }, {
+      keyType: "command",
+      name: "\\",
+      value: "\\",
+      width: "two"
+    }, {
+      keyType: "command",
+      name: "del",
+      value: "del",
       width: "two"
     }]
   }, {
@@ -57,52 +60,52 @@ const keyboards = [{
       keyType: "number",
       value: "1",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/numbers/n1.svg"
+      icon: "/assets/symbols/numbers/n1.svg"
     }, {
       keyType: "number",
       value: "2",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/numbers/n2.svg"
+      icon: "/assets/symbols/numbers/n2.svg"
     }, {
       keyType: "number",
       value: "3",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/numbers/n3.svg"
+      icon: "/assets/symbols/numbers/n3.svg"
     }, {
       keyType: "number",
       value: "4",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/numbers/n4.svg"
+      icon: "/assets/symbols/numbers/n4.svg"
     }, {
       keyType: "number",
       value: "5",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/numbers/n5.svg"
+      icon: "/assets/symbols/numbers/n5.svg"
     }, {
       keyType: "number",
       value: "6",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/numbers/n6.svg"
+      icon: "/assets/symbols/numbers/n6.svg"
     }, {
       keyType: "number",
       value: "7",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/numbers/n7.svg"
+      icon: "/assets/symbols/numbers/n7.svg"
     }, {
       keyType: "number",
       value: "8",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/numbers/n8.svg"
+      icon: "/assets/symbols/numbers/n8.svg"
     }, {
       keyType: "number",
       value: "9",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/numbers/n9.svg"
+      icon: "/assets/symbols/numbers/n9.svg"
     }, {
       keyType: "number",
       value: "0",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/numbers/n0.svg"
+      icon: "/assets/symbols/numbers/n0.svg"
     }]
   }, {
     rowId: 3,
@@ -110,62 +113,62 @@ const keyboards = [{
       keyType: "letter",
       value: "q",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lq.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/uq.svg"
+      icon: "/assets/symbols/letters/lq.svg",
+      capsIcon: "/assets/symbols/letters/uq.svg"
     }, {
       keyType: "letter",
       value: "w",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lw.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/uw.svg"
+      icon: "/assets/symbols/letters/lw.svg",
+      capsIcon: "/assets/symbols/letters/uw.svg"
     }, {
       keyType: "letter",
       value: "e",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/le.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ue.svg"
+      icon: "/assets/symbols/letters/le.svg",
+      capsIcon: "/assets/symbols/letters/ue.svg"
     }, {
       keyType: "letter",
       value: "r",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lr.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ur.svg"
+      icon: "/assets/symbols/letters/lr.svg",
+      capsIcon: "/assets/symbols/letters/ur.svg"
     }, {
       keyType: "letter",
       value: "t",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lt.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ut.svg"
+      icon: "/assets/symbols/letters/lt.svg",
+      capsIcon: "/assets/symbols/letters/ut.svg"
     }, {
       keyType: "letter",
       value: "y",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ly.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/uy.svg"
+      icon: "/assets/symbols/letters/ly.svg",
+      capsIcon: "/assets/symbols/letters/uy.svg"
     }, {
       keyType: "letter",
       value: "u",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lu.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/uu.svg"
+      icon: "/assets/symbols/letters/lu.svg",
+      capsIcon: "/assets/symbols/letters/uu.svg"
     }, {
       keyType: "letter",
       value: "i",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/li.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ui.svg"
+      icon: "/assets/symbols/letters/li.svg",
+      capsIcon: "/assets/symbols/letters/ui.svg"
     }, {
       keyType: "letter",
       value: "o",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lo.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/uo.svg"
+      icon: "/assets/symbols/letters/lo.svg",
+      capsIcon: "/assets/symbols/letters/uo.svg"
     }, {
       keyType: "letter",
       value: "p",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lp.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/up.svg"
+      icon: "/assets/symbols/letters/lp.svg",
+      capsIcon: "/assets/symbols/letters/up.svg"
     }]
   }, {
     rowId: 4,
@@ -176,56 +179,56 @@ const keyboards = [{
       keyType: "letter",
       value: "a",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/la.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ua.svg"
+      icon: "/assets/symbols/letters/la.svg",
+      capsIcon: "/assets/symbols/letters/ua.svg"
     }, {
       keyType: "letter",
       value: "s",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ls.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/us.svg"
+      icon: "/assets/symbols/letters/ls.svg",
+      capsIcon: "/assets/symbols/letters/us.svg"
     }, {
       keyType: "letter",
       value: "d",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ld.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ud.svg"
+      icon: "/assets/symbols/letters/ld.svg",
+      capsIcon: "/assets/symbols/letters/ud.svg"
     }, {
       keyType: "letter",
       value: "f",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lf.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/uf.svg"
+      icon: "/assets/symbols/letters/lf.svg",
+      capsIcon: "/assets/symbols/letters/uf.svg"
     }, {
       keyType: "letter",
       value: "g",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lg.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ug.svg"
+      icon: "/assets/symbols/letters/lg.svg",
+      capsIcon: "/assets/symbols/letters/ug.svg"
     }, {
       keyType: "letter",
       value: "h",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lh.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/uh.svg"
+      icon: "/assets/symbols/letters/lh.svg",
+      capsIcon: "/assets/symbols/letters/uh.svg"
     }, {
       keyType: "letter",
       value: "j",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lj.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/uj.svg"
+      icon: "/assets/symbols/letters/lj.svg",
+      capsIcon: "/assets/symbols/letters/uj.svg"
     }, {
       keyType: "letter",
       value: "k",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lk.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/uk.svg"
+      icon: "/assets/symbols/letters/lk.svg",
+      capsIcon: "/assets/symbols/letters/uk.svg"
     }, {
       keyType: "letter",
       value: "l",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ll.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ul.svg"
+      icon: "/assets/symbols/letters/ll.svg",
+      capsIcon: "/assets/symbols/letters/ul.svg"
     }, {
       keyType: "placeholder",
       width: "one"
@@ -240,54 +243,255 @@ const keyboards = [{
       keyType: "letter",
       value: "z",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lz.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/uz.svg"
+      icon: "/assets/symbols/letters/lz.svg",
+      capsIcon: "/assets/symbols/letters/uz.svg"
     }, {
       keyType: "letter",
       value: "x",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lx.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ux.svg"
+      icon: "/assets/symbols/letters/lx.svg",
+      capsIcon: "/assets/symbols/letters/ux.svg"
     }, {
       keyType: "letter",
       value: "c",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lc.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/uc.svg"
+      icon: "/assets/symbols/letters/lc.svg",
+      capsIcon: "/assets/symbols/letters/uc.svg"
     }, {
       keyType: "letter",
       value: "v",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lv.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/uv.svg"
+      icon: "/assets/symbols/letters/lv.svg",
+      capsIcon: "/assets/symbols/letters/uv.svg"
     }, {
       keyType: "letter",
       value: "b",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lb.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ub.svg"
+      icon: "/assets/symbols/letters/lb.svg",
+      capsIcon: "/assets/symbols/letters/ub.svg"
     }, {
       keyType: "letter",
       value: "n",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/ln.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/un.svg"
+      icon: "/assets/symbols/letters/ln.svg",
+      capsIcon: "/assets/symbols/letters/un.svg"
     }, {
       keyType: "letter",
       value: "m",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/lm.svg",
-      capsIcon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/letters/um.svg"
+      icon: "/assets/symbols/letters/lm.svg",
+      capsIcon: "/assets/symbols/letters/um.svg"
     }, {
-      keyType: "command",
-      name: "backslash",
-      value: "\\",
+      keyType: "chinese",
+      name: "中文",
       width: "three"
     }]
   }]
 }, {
+  name: "punctuations",
+  displayName: "常用符号",
+  rows: [{
+    rowId: 1,
+    keys: [{
+      keyType: "operator",
+      value: "\\varnothing",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/varnothing.svg"
+    }, {
+      keyType: "operator",
+      value: "\\{",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/lbrace.svg"
+    }, {
+      keyType: "operator",
+      value: "\\}",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rbrace.svg"
+    }, {
+      keyType: "operator",
+      value: "[",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/lbrack.svg"
+    }, {
+      keyType: "operator",
+      value: "]",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rbrack.svg"
+    }, {
+      keyType: "operator",
+      value: "(",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/lparen.svg"
+    }, {
+      keyType: "operator",
+      value: ")",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rparen.svg"
+    }, {
+      keyType: "operator",
+      value: "\\mid",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/mid.svg"
+    }, {
+      keyType: "operator",
+      value: ",",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/comma.svg"
+    }, {
+      keyType: "operator",
+      value: "\\cdots",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/cdots.svg"
+    }]
+  }, {
+    rowId: 2,
+    keys: [{
+      keyType: "operator",
+      value: "\\forall",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/forall.svg"
+    }, {
+      keyType: "operator",
+      value: "\\exists",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/exists.svg"
+    }, {
+      keyType: "operator",
+      value: "\\Rightarrow",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/urightarrow.svg"
+    }, {
+      keyType: "operator",
+      value: "\\Leftrightarrow",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/uleftrightarrow.svg"
+    }, {
+      keyType: "operator",
+      value: "\\in",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/in.svg"
+    }, {
+      keyType: "operator",
+      value: "\\ni",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/ni.svg"
+    }, {
+      keyType: "operator",
+      value: "\\notin",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/notin.svg"
+    }, {
+      keyType: "operator",
+      value: "\\not\\ni",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/not_ni.svg"
+    }, {
+      keyType: "operator",
+      value: "\\cup",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/cup.svg"
+    }, {
+      keyType: "operator",
+      value: "\\cap",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/cap.svg"
+    }]
+  }, {
+    rowId: 3,
+    keys: [{
+      keyType: "operator",
+      value: "\\because",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/because.svg"
+    }, {
+      keyType: "operator",
+      value: "\\therefore",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/therefore.svg"
+    }, {
+      keyType: "operator",
+      value: "<",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/less.svg"
+    }, {
+      keyType: "operator",
+      value: ">",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/gtr.svg"
+    }, {
+      keyType: "operator",
+      value: "\\leqslant",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/leqslant.svg"
+    }, {
+      keyType: "operator",
+      value: "\\geqslant",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/geqslant.svg"
+    }, {
+      keyType: "operator",
+      value: "\\neq",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/neq.svg"
+    }, {
+      keyType: "operator",
+      value: "=",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/equal.svg"
+    }, {
+      keyType: "placeholder",
+      width: "two"
+    }, {
+      keyType: "placeholder",
+      width: "two"
+    }]
+  }, {
+    rowId: 4,
+    keys: [{
+      keyType: "operator",
+      value: "\\mathbb{N}",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/natural_numbers.svg"
+    }, {
+      keyType: "operator",
+      value: "\\mathbb{Z}",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/integers.svg"
+    }, {
+      keyType: "operator",
+      value: "\\mathbb{Q}",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rational_numbers.svg"
+    }, {
+      keyType: "operator",
+      value: "\\mathbb{R}",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/real_numbers.svg"
+    }, {
+      keyType: "operator",
+      value: "\\mathbb{C}",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/complex_numbers.svg"
+    }, {
+      keyType: "placeholder",
+      width: "two"
+    }, {
+      keyType: "placeholder",
+      width: "two"
+    }, {
+      keyType: "placeholder",
+      width: "two"
+    }, {
+      keyType: "placeholder",
+      width: "two"
+    }, {
+      keyType: "placeholder",
+      width: "two"
+    }]
+  }]
+}, {
   name: "greeks",
-  displayName: "希腊字符",
+  displayName: "希腊字母",
   rows: [{
     rowId: 1,
     keys: [{
@@ -687,10 +891,8 @@ const keyboards = [{
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/equal.svg"
     }, {
-      keyType: "operator",
-      value: "\\complement",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/complement.svg"
+      keyType: "placeholder",
+      width: "two"
     }, {
       keyType: "placeholder",
       width: "two"
@@ -741,7 +943,7 @@ const keyboards = [{
   }]
 }, {
   name: "contact",
-  displayName: "联系我",
+  displayName: "联系作者",
   rows: [{
     rowId: 1,
     keys: [{
@@ -755,7 +957,7 @@ const keyboards = [{
       width: "one"
     }, {
       keyType: "navigator",
-      name: "问题反馈",
+      name: "意见反馈",
       action: "feedback",
       width: "two"
     }, {
@@ -775,7 +977,6 @@ const keyboards = [{
       width: "one"
     }, {
       keyType: "navigator",
-      name: "打赏 ￥9.9",
       action: "donate",
       width: "two"
     }, {

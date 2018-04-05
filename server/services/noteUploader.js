@@ -28,7 +28,7 @@ module.exports = (imagePath) => {
     SecretKey: configs.qcloudSecretKey,
     Domain: `http://${configs.cos.fileBucket}-${configs.qcloudAppId}.cos.${configs.cos.region}.myqcloud.com/`
   })
-  const imgKey = `${Date.now()}-${shortid.generate()}.png`
+  const imgKey = `${Date.now()}-${shortid.generate()}.svg`
   const uploadFolder = configs.cos.uploadFolder ? configs.cos.uploadFolder + '/' : ''
   const imageSize = fs.statSync(imagePath).size
   const params = {
@@ -82,7 +82,7 @@ module.exports = (imagePath) => {
         resolve({
           imgUrl: `http://${configs.cos.fileBucket}-${configs.qcloudAppId}.cos${regionMap[configs.cos.region]}.myqcloud.com/${uploadFolder}${imgKey}`,
           size: imageSize,
-          mimeType: 'image/png',
+          mimeType: 'image/svg+xml',
           name: imgKey,
           fileBucket: `${configs.cos.fileBucket}-${configs.qcloudAppId}`,
           qcloudAppId: configs.qcloudAppId,

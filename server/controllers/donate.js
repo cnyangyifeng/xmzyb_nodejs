@@ -17,7 +17,7 @@ async function placeOrder(ctx, next) {
     const openid = ctx.state.$wxInfo.userinfo.openId
     const out_trade_no = moment().format('YYYYMMDDHHmmssSSS')
     const spbill_create_ip = ctx.ip.replace(/::ffff:/, '')
-    const total_fee = 999
+    const total_fee = 990
     // 组装数据
     let orderReqData = '<xml>' +
       '<appid>' + appid + '</appid>' +

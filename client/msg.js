@@ -11,6 +11,8 @@ const msgs = {
 
   download_fail_title: `下载失败`,
 
+  error_message_title: `错误提示`,
+
   loading_title: `加载中`,
 
   login_fail_title: `登录失败`,

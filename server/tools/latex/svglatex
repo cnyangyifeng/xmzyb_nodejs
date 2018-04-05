@@ -1,0 +1,104 @@
+#!/bin/bash
+
+BACKGROUND=White
+FOREGROUND=Black
+NOTE=
+TEXFILE=
+
+# Remove temporary files.
+function clean {
+    local BNAME=${TEXFILE%.tex}
+    rm -f $TEXFILE $BNAME.aux $BNAME.xdv $BNAME.log
+}
+
+# Check if the specified command is installed on the system.
+#
+# @param $1 the command to test.
+# @return true if the command is installed on the system, false otherwise.
+function exists {
+    local COMMAND=$1
+    return $(command -v $COMMAND &> /dev/null)
+}
+
+# Generate the svg image.
+function generate {
+    local BNAME
+    local PREFIX
+    local TMPDIR
+    local SUFFIX
+
+    if [ ! "$NOTE" ]; then
+        echo "No input note." >&2
+        exit 1
+    fi
+
+    TMPDIR=/tmp/svglatex/download
+
+    if [ ! -d $TMPDIR ]; then
+        mkdir -p $TMPDIR
+    fi
+
+    TEXFILE=$TMPDIR/note_$$.tex
+
+    PREFIX="
+     \documentclass{ctexart}
+     \usepackage{amsfonts}\usepackage{amsmath}\usepackage{amssymb}
+     \usepackage[version=4]{mhchem}
+     \pagestyle{empty}
+     \begin{document}
+     \begin{equation*}\begin{split}
+    "
+    SUFFIX="
+     \end{split}\end{equation*}
+     \end{document}
+    "
+
+    echo "$PREFIX $NOTE $SUFFIX" > $TEXFILE
+    xelatex -no-pdf -halt-on-error -interaction=nonstopmode -output-directory=$TMPDIR $TEXFILE | sed -n '/^!/,/^ /p' >&2
+
+    if [ ${PIPESTATUS[0]} -ne 0 ]; then
+        clean
+        exit 1
+    fi
+
+    BNAME=$(basename $TEXFILE)
+    XDVFILE=${TEXFILE%.tex}.xdv
+    SVGFILE=${TEXFILE%.tex}.svg
+    PNGFILE=${TEXFILE%.tex}.png
+
+    dvisvgm $XDVFILE --no-fonts --no-styles -TS3 -o $SVGFILE
+
+    convert $SVGFILE -bordercolor White -border 40x40 $PNGFILE
+
+    readlink -f $SVGFILE
+
+    clean
+}
+
+# Entry point of the script.
+function main {
+    if ! exists xelatex || ! exists dvisvgm; then
+        echo "svglatex requires xelatex and dvisvgm packages." >&2
+        exit 1
+    fi
+
+    parse "$@"
+
+    generate
+}
+
+# Parse command line arguments.
+function parse {
+    while getopts f: ARG; do
+        case $ARG in
+            f)
+                NOTE=$OPTARG
+                ;;
+            ?)
+                exit 1
+        esac
+    done
+}
+
+trap "clean" SIGINT SIGTERM
+main "$@"

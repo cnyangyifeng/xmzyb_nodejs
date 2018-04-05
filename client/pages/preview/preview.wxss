@@ -28,6 +28,7 @@
 .note-image-view {
   flex: none;
   display: flex;
+  padding: 20px;
 }
 
 .note-image {
@@ -74,7 +75,7 @@
 
 .actionbar-btn.edit {
   flex: 1;
-  background-color: #333;
+  background-color: #22292c;
 }
 
 .actionbar-btn.edit-hover {

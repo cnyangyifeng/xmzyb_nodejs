@@ -33,17 +33,21 @@ Page({
     },
 
     cursor: { blockType: 'cursor' }, // 当前光标
+
     stopBlockTapPropagation: false,
 
     capsOn: false, // 当前英文字母大小写输入状态
     chineseOn: false, // 当前中文输入状态
-
-    lastRefreshTime: new Date().getTime(), // 上次刷新时间
+    inlineEditing: false, // 当前是否处于 inline 编辑模式
+    inlineCache: '', // 当前 inline 编辑缓存区
 
     keyboards: keyboards, // 当前键盘集
     keyboardId: 0,
-    currentKeyboard: ''
+    currentKeyboard: '',
 
+    lastRefreshTime: new Date().getTime(), // 上次刷新时间
+
+    characters: ''
   },
 
   /* ================================================================================ */
@@ -233,7 +237,63 @@ Page({
     const chineseOn = this.data.chineseOn
     // 更新页面数据 chineseOn
     this.setData({
-      chineseOn: !chineseOn
+      chineseOn: true
+    })
+  },
+
+  /**
+   * 绑定事件：chineseInput 输入中
+   */
+
+  chineseTextInput: function (e) {
+    const value = e.detail.value
+    console.log(`chineseInput 输入中：`, value)
+    this.setData({
+      characters: value
+    })
+    console.log(this.data.characters)
+  },
+
+  /**
+   * 绑定事件：chineseInput 输入完成
+   */
+
+  chineseTextConfirm: function (e) {
+    console.log(`chineseInput 输入完成`)
+    const code = '\\mbox{' + this.data.characters + '}'
+    this.buildBlocks(code, 'teal')
+    // 更新页面数据 chineseOn
+    this.setData({
+      chineseOn: false,
+      characters: ''
+    })
+  },
+
+  /**
+   * 绑定事件：点击 chineseSubmitButton
+   */
+
+  chineseSubmitButtonTap: function () {
+    console.log(`点击 chineseSubmitButton`)
+    const code = '\\mbox{' + this.data.characters + '}'
+    this.buildBlocks(code, 'teal')
+    // 更新页面数据 chineseOn
+    this.setData({
+      chineseOn: false,
+      characters: ''
+    })
+  },
+
+  /**
+   * 绑定事件：点击 chineseCancelButton
+   */
+
+  chineseCancelButtonTap: function () {
+    console.log(`点击 chineseCancelButton`)
+    // 更新页面数据 chineseOn
+    this.setData({
+      chineseOn: false,
+      characters: ''
     })
   },
 
@@ -260,6 +320,19 @@ Page({
     const value = e.currentTarget.dataset.value
     console.log(`点击 commandKey: `, name, value)
     switch (name) {
+      case 'del':
+        this.deleteBlock()
+        break
+      case '\\':
+        this.buildBlocks(value, 'green')
+        // 进入 inline 编辑模式
+        if (!this.data.inlineEditing) {
+          this.setData({
+            inlineEditing: true,
+            inlineCache: '\\'
+          })
+        }
+        break
       default:
         this.buildBlocks(value, 'brown')
         break
@@ -286,11 +359,11 @@ Page({
     console.log(`点击 key: ${value}`)
     switch (keyType) {
       case 'greek':
-        this.buildBlocks(value, 'indigo')
+        this.buildBlocks(value, 'cyan')
         break
       case 'letter':
         const res = this.data.capsOn ? value.toUpperCase() : value
-        this.buildBlocks(res, 'red')
+        this.buildBlocks(res, this.data.inlineEditing ? 'green' : 'red')
         break
       case 'number':
         this.buildBlocks(value, 'blue')
@@ -330,7 +403,6 @@ Page({
                 console.log(`图片保存成功`)
                 wx.showToast({
                   title: msgs.save_note_image_success_title,
-                  image: '/assets/images/right.png',
                   mask: true
                 })
               },
@@ -382,13 +454,12 @@ Page({
   },
 
   /**
-   * 绑定事件：点击 deleteButton
+   * 绑定事件：点击 spaceButton
    */
 
-  deleteButtonTap: function () {
-    console.log(`点击 deleteButton`)
-    // 删除 block
-    this.deleteBlock()
+  spaceButtonTap: function () {
+    console.log(`点击 spaceButton`)
+    this.buildBlocks(' ')
   },
 
   /**
@@ -446,7 +517,7 @@ Page({
   donate: function () {
     // 显示 loading 提示框
     wx.showLoading({
-      title: msgs.login_processing_title,
+      title: msgs.loading_title,
       mask: true
     })
     // 调用微信支付统一下单接口
@@ -469,17 +540,21 @@ Page({
             console.log(`支付成功：`, res)
             wx.showToast({
               title: msgs.pay_success_title,
-              image: '/assets/images/right.png',
               mask: true
             })
           },
           'fail': err => {
             console.log(`支付失败：`, err)
-            wx.showToast({
-              title: msgs.pay_fail_title,
-              image: '/assets/images/warning.png',
-              mask: true
-            })
+            switch (err.errMsg) {
+              case 'requestPayment:fail cancel':
+                break
+              default:
+                wx.showToast({
+                  title: msgs.pay_fail_title,
+                  image: '/assets/images/warning.png',
+                  mask: true
+                })
+            }
           }
         })
       },
@@ -551,7 +626,7 @@ Page({
         })
         // 启动信道服务
         tunnelService.parse(this, getApp())
-        return
+        // return
       })
     }
     // 准备信道消息
@@ -575,7 +650,7 @@ Page({
   downloadImage: function () {
     return new Promise((resolve, reject) => {
       wx.downloadFile({
-        url: `${configs.weapp}/download/${this.data.note.noteImageData.tempFileName}`,
+        url: `${configs.weapp}/download/${this.data.note.noteImageData.pngImageName}`,
         // 图片下载成功
         success: res => {
           console.log(`图片下载成功：`, res.tempFilePath)
@@ -596,36 +671,59 @@ Page({
    * 组装 blocks
    */
 
-  buildBlocks: function (key, color, backgroundColor) {
+  buildBlocks: function (key, color) {
     // 设置 block 默认字体颜色
-    if (!color) {
+    if (!color || color.length === 0) {
       color = 'white'
     }
-    // 设置 block 默认背景颜色
-    if (!backgroundColor) {
-      backgroundColor = 'none'
+    // 准备 code
+    let code = ''
+    if (this.data.inlineEditing) {
+      if (/^[A-Za-z]+$/.test(key)) {
+        // 如果当前处于 inline 编辑模式，并且 key 为字母，则输出 code 为 cache + key
+        code = this.data.inlineCache + key
+        this.setData({
+          inlineCache: code
+        })
+      } else {
+        // 否则，正常输出 code 为 key，并且退出 inline 编辑模式
+        code = key
+        this.setData({
+          inlineEditing: false,
+          inlineCache: ''
+        })
+      }
+    } else {
+      // 否则，正常输出 code 为 key
+      code = key
     }
     // 准备新 block
     const item = {
       wxKey: new Date().getTime(),
       blockType: 'regular',
-      value: key,
+      value: code,
       color: color,
-      backgroundColor: backgroundColor
+      backgroundColor: 'grey'
     }
     const blocks = this.data.note.blocks
     let cursorId = this.data.note.cursorId
-    // 取消 block 高亮效果
-    if (cursorId > 0) {
-      blocks[cursorId - 1].backgroundColor = 'none'
-    }
-    // 插入新 block
-    blocks.splice(cursorId, 0, item)
-    // 更新光标位置：后移一位
-    cursorId++
-    // 添加 block 高亮效果
-    if (cursorId > 0) {
-      blocks[cursorId - 1].backgroundColor = 'grey'
+    if (this.data.inlineEditing) {
+      // 如果当前处于 inline 编辑模式，使用新的 block 替换光标之前的原 block
+      blocks[cursorId - 1] = item
+    } else {
+      // 否则，在光标之前插入新的 block
+      // 取消 block 高亮效果
+      if (cursorId > 0) {
+        blocks[cursorId - 1].backgroundColor = 'none'
+      }
+      // 插入新 block
+      blocks.splice(cursorId, 0, item)
+      // 更新光标位置：后移一位
+      cursorId++
+      // 添加 block 高亮效果
+      if (cursorId > 0) {
+        blocks[cursorId - 1].backgroundColor = 'grey'
+      }
     }
     // 更新页面数据 note
     const note = this.data.note
@@ -664,6 +762,13 @@ Page({
     this.setData({
       note: note
     })
+    // 如果当前处于 inline 编辑模式，则退出
+    if (this.data.inlineEditing) {
+      this.setData({
+        inlineEditing: false,
+        inlineCache: ''
+      })
+    }
   },
 
   /**
@@ -696,6 +801,13 @@ Page({
     this.setData({
       note: note
     })
+    // 如果当前处于 inline 编辑模式，则退出
+    if (this.data.inlineEditing) {
+      this.setData({
+        inlineEditing: false,
+        inlineCache: ''
+      })
+    }
   }
 
 })

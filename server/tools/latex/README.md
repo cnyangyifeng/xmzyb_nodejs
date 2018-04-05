@@ -32,11 +32,6 @@ Download TexLive installation script `install-tl-unx.tar.gz`（ http://www.tug.o
 
 手动下载并安装必须的宏包（ 下载地址：https://www.ctan.org ），将 `ins` 编译为 `sty` 并拷贝至 `/usr/share/texmf/tex/latex/amsmath` 目录下，然后执行 `texhash` 命令进行刷新。
 
-+ `amsmath`
-+ `mhchem`
-  - `chemgreek`
-
-
 ## Options
 + `-b <color>` Set the background color
 + `-B <color>` Set the border color

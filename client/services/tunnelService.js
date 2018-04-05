@@ -51,19 +51,29 @@ var parse = (page, app) => {
   // 监听 “信道发生错误” 的 callback
   app.tunnelErrorCallback = err => {
     console.log(`on tunnel error callback: `, err)
+    app.globalData.tunnelStatus = TunnelStatus.CLOSE
   }
   // 监听 “LaTeX 渲染响应” 消息
   app.tunnel.on(TunnelEvent.PARSE_NOTE_TEXT_RES, res => {
     console.info("on tunnel message: ", TunnelEvent.PARSE_NOTE_TEXT_RES)
     if (res) {
-      // 更新页面数据 note
-      const note = res
-      note.blocks = JSON.parse(res.blocks)
-      note.noteImageData = JSON.parse(res.noteImageData)
-      console.log(`received note: `, res)
-      page.setData({
-        note: note
-      })
+      console.log(`received message: `, res)
+      if (res.stderr) {
+        // 如果服务器渲染失败、抛出异常，则显示异常消息弹窗
+        wx.showModal({
+          title: msgs.error_message_title,
+          content: res.stderr,
+          showCancel: false
+        })
+      } else {
+        // 渲染成功，则更新页面数据 note
+        const note = res
+        note.blocks = JSON.parse(res.blocks)
+        note.noteImageData = JSON.parse(res.noteImageData)
+        page.setData({
+          note: note
+        })
+      }
       // 更新导航栏标题
       wx.setNavigationBarTitle({
         title: msgs.app_title

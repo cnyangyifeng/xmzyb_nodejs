@@ -1,20 +1,20 @@
 <view class="home-page">
   <view class="home-page-hd">
     <scroll-view scroll-x scroll-y class="note-image-container {{appMode}}" bindtap="noteImageContainerTap">
-      <view class="note-image-view">
-        <image wx:if="{{note.noteImageData}}" class="note-image" lazy-load src="{{note.noteImageData.imgUrl}}" style="width:{{note.noteImageData.dimensions.width/2}}px;height:{{note.noteImageData.dimensions.height/2}}px"></image>
-        <image wx:else class="note-image" src="/assets/images/preview.svg" style="width:300px;height:100px"></image>
+      <view class="note-image-view" style="width:{{note.noteImageData.dimensions.width}}px;height:{{note.noteImageData.dimensions.height}}px">
+        <image wx:if="{{note.noteImageData}}" class="note-image" lazy-load src="{{note.noteImageData.imgUrl}}" style="width:{{note.noteImageData.dimensions.width}}px;height:{{note.noteImageData.dimensions.height}}px"></image>
+        <image wx:else class="note-image" src="/assets/images/preview.svg" style="width:165px;height:36px"></image>
       </view>
     </scroll-view>
   </view>
   <view class="home-page-bd">
     <view class="note-workspace" bindtap="noteWorkspaceTap">
-      <text class="env">LaTeX Editor</text>
+      <text class="env">LaTeX {equation*} {split}</text>
       <scroll-view scroll-y class="note-editor">
         <view class="note-content">
           <block wx:for="{{note.blocks}}" wx:key="{{item.wxKey}}">
             <view wx:if="{{item.blockType==='cursor'}}" class="cursor"></view>
-            <view wx:else class="block c-{{item.color}} bc-{{item.backgroundColor}}" data-block-id="{{index}}" bindtap="blockTap">{{item.value}}</view>
+            <view wx:else class="block {{item.value===' '?'space':''}} c-{{item.color}} bc-{{item.backgroundColor}}" data-block-id="{{index}}" bindtap="blockTap">{{item.value}}</view>
           </block>
         </view>
       </scroll-view>
@@ -26,7 +26,7 @@
         <image class="toolbar-switch-icon" src="/assets/images/{{appMode==='preview'?'unfold.svg':'packup.svg'}}"></image>
       </view>
       <view class="toolbar-prefix {{keyboardId===0?'active':''}}" hover-class="toolbar-prefix-hover" bindtap="toolbarPrefixTap">{{keyboards[0].displayName}}</view>
-      <scroll-view scroll-x class="toolbar-tabs" scroll-into-view="{{currentKeyboard}}">
+      <scroll-view scroll-x scroll-with-animation class="toolbar-tabs" scroll-into-view="{{currentKeyboard}}">
         <view class="toolbar-tabs-innner">
           <block wx:for="{{keyboards}}" wx:key="name">
             <view wx:if="{{index!==0}}" class="toolbar-tab {{keyboardId===index?'active':''}} {{item.name==='contact'?'contact':''}}" hover-class="toolbar-tab-hover" id="{{item.name}}" data-keyboard-id="{{index}}" bindtap="toolbarTabTap">{{item.displayName}}</view>
@@ -42,9 +42,12 @@
               <view wx:if="{{item.keyType==='placeholder'}}" class="toolbar-btn {{item.width}}"></view>
               <view wx:elif="{{item.keyType==='caps'}}" class="control-btn {{capsOn?'on':''}} {{item.width}}" bindtap="capsKeyTap">{{item.name}}</view>
               <view wx:elif="{{item.keyType==='chinese'}}" class="control-btn {{chineseOn?'on':''}} {{item.width}}" bindtap="chineseKeyTap">{{item.name}}</view>
-              <view wx:elif="{{item.keyType==='command'}}" class="command-btn {{item.width}}" hover-class="command-btn-hover" data-name="{{item.name}}" data-value="{{item.value}}" bindtap="commandKeyTap">{{item.value}}</view>
+              <view wx:elif="{{item.keyType==='command'}}" class="command-btn {{item.width}}" hover-class="command-btn-hover" data-name="{{item.name}}" data-value="{{item.value}}" bindtap="commandKeyTap">{{item.name}}</view>
               <button wx:elif="{{item.keyType==='navigator'&&item.action==='feedback'}}" class="navigator-btn {{item.width}}" hover-class="navigator-btn-hover" open-type="contact">{{item.name}}</button>
-              <button wx:elif="{{item.keyType==='navigator'&&item.action==='donate'}}" class="navigator-btn {{item.width}}" hover-class="navigator-btn-hover" bindtap="donateButtonTap">{{item.name}}</button>
+              <button wx:elif="{{item.keyType==='navigator'&&item.action==='donate'}}" class="navigator-btn {{item.width}}" hover-class="navigator-btn-hover" bindtap="donateButtonTap">赞赏
+                <view class="cny">￥</view>
+                <view class="fee">9.9</view>
+              </button>
               <view wx:elif="{{item.keyType==='letter'}}" class="toolbar-btn {{item.width}}" hover-class="toolbar-btn-hover" data-key-type="{{item.keyType}}" data-value="{{item.value}}" bindtap="keyTap">
                 <image class="toolbar-btn-icon" src="{{capsOn?item.capsIcon:item.icon}}"></image>
               </view>
@@ -63,10 +66,17 @@
       <button class="actionbar-btn {{note.noteImageData?'send':'send-disabled'}}" open-type="share">
         <image class="actionbar-btn-icon" src="/assets/images/send{{note.noteImageData?'':'_disabled'}}.svg"></image>
       </button>
-      <view class="actionbar-btn delete {{appMode}}" hover-class="delete-hover" bindtap="deleteButtonTap">delete</view>
+      <view class="actionbar-btn space {{appMode}}" hover-class="space-hover" bindtap="spaceButtonTap">space</view>
       <view class="actionbar-btn {{note.blocks.length>1?'refresh':'refresh-disabled'}}" hover-class="{{note.blocks.length>1?'refresh-hover':''}}" bindtap="refreshButtonTap">
         <image class="actionbar-btn-icon" src="/assets/images/refresh{{note.blocks.length>1?'':'_disabled'}}.svg"></image>
       </view>
+    </view>
+  </view>
+  <view class="chinese-modal" hidden="{{!chineseOn}}">
+    <view class="chinese-panel">
+      <input class="chinese-text" placeholder="请输入中文" value="{{characters}}" focus="{{chineseOn}}" confirm-type="done" bindinput="chineseTextInput" bindconfirm="chineseTextConfirm" />
+      <view class="chinese-submit-btn" hover-class="chinese-submit-btn-hover" type="default" bindtap="chineseSubmitButtonTap">确定</view>
+      <view class="chinese-cancel-btn" hover-class="chinese-cancel-btn-hover" type="default" bindtap="chineseCancelButtonTap">取消</view>
     </view>
   </view>
 </view>

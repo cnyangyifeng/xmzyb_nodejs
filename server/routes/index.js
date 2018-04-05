@@ -5,8 +5,6 @@ const controllers = require('../controllers')
 
 const { auth: { authorizationMiddleware, validationMiddleware } } = require('../qcloud')
 
-// router.get('/api/wxpay', validationMiddleware, controllers.wxpay)
-
 router.get('/download/:temp_file_name', controllers.download)
 
 router.get('/login', authorizationMiddleware, controllers.login)
