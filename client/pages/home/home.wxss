@@ -82,14 +82,14 @@
   flex-wrap: wrap;
   padding: 10px 20rpx;
   color: #fff;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: Courier New, Courier, monospace;
   font-size: 18px;
   font-weight: 600;
   overflow: hidden;
 }
 
 .block {
-  max-width: 200px;
+  max-width: 300px;
   padding: 8px 0;
   overflow: hidden;
   white-space: nowrap;
@@ -157,7 +157,7 @@
 }
 
 .block.c-grey {
-  color: #fff;
+  color: #666;
 }
 
 .block.bc-indigo {

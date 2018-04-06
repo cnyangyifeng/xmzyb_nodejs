@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>exclamation</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="numbers,-letters,-operators" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="exclamation" fill="#000000" fill-rule="nonzero">
+            <g transform="translate(11.500000, 4.500000)" id="g0-33">
+                <path d="M3.6369064,2.281929 C3.6369064,1.604833 3.0765394,1.347984 2.6796156,1.347984 C2.2826918,1.347984 1.7223135,1.604833 1.7223135,2.281929 L2.4461237,13.5593403 C2.4694695,13.8628696 2.4694695,13.9796099 2.6796156,13.9796099 C2.8897617,13.9796099 2.8897504,13.8628696 2.9130962,13.5593403 L3.6369064,2.281929 Z M3.6369064,16.9682418 C3.6369064,16.4545698 3.2166255,16.0109431 2.6796156,16.0109431 C2.1659402,16.0109431 1.7223135,16.431224 1.7223135,16.9682418 C1.7223135,17.4819116 2.1425944,17.925536 2.6796156,17.925536 C3.1932797,17.925536 3.6369064,17.5052607 3.6369064,16.9682418 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

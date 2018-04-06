@@ -288,205 +288,272 @@ const keyboards = [{
     }]
   }]
 }, {
-  name: "punctuations",
+  name: "popular",
   displayName: "常用符号",
   rows: [{
     rowId: 1,
     keys: [{
       keyType: "operator",
-      value: "\\varnothing",
+      value: "+",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/varnothing.svg"
+      icon: "/assets/symbols/popular/plus.svg"
     }, {
       keyType: "operator",
-      value: "\\{",
+      value: "-",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/lbrace.svg"
+      icon: "/assets/symbols/popular/minus.svg"
     }, {
       keyType: "operator",
-      value: "\\}",
+      value: "\\times$ ",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rbrace.svg"
+      icon: "/assets/symbols/popular/times.svg"
     }, {
       keyType: "operator",
-      value: "[",
+      value: "\\div$ ",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/lbrack.svg"
+      icon: "/assets/symbols/popular/div.svg"
     }, {
       keyType: "operator",
-      value: "]",
+      value: "{@brown$a@grey$}@brown$\\cdot${@brown$b@grey$}@brown",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rbrack.svg"
+      icon: "/assets/symbols/popular/cdot.svg"
     }, {
       keyType: "operator",
-      value: "(",
+      value: "\\cfrac${@brown$a@grey$}@brown${@brown$b@grey$}@brown",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/lparen.svg"
+      icon: "/assets/symbols/popular/cfrac.svg"
     }, {
       keyType: "operator",
-      value: ")",
+      value: "*",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rparen.svg"
+      icon: "/assets/symbols/popular/ast.svg"
     }, {
       keyType: "operator",
-      value: "\\mid",
+      value: "/",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/mid.svg"
+      icon: "/assets/symbols/popular/slash.svg"
     }, {
       keyType: "operator",
-      value: ",",
+      value: "\\%",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/comma.svg"
+      icon: "/assets/symbols/popular/percent.svg"
     }, {
-      keyType: "operator",
-      value: "\\cdots",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/cdots.svg"
+      keyType: "command",
+      name: "del",
+      value: "del",
+      width: "two"
     }]
   }, {
     rowId: 2,
     keys: [{
       keyType: "operator",
-      value: "\\forall",
+      value: "?",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/forall.svg"
+      icon: "/assets/symbols/popular/question.svg"
     }, {
       keyType: "operator",
-      value: "\\exists",
+      value: "!",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/exists.svg"
+      icon: "/assets/symbols/popular/exclamation.svg"
     }, {
       keyType: "operator",
-      value: "\\Rightarrow",
+      value: ";",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/urightarrow.svg"
+      icon: "/assets/symbols/popular/semicolon.svg"
     }, {
       keyType: "operator",
-      value: "\\Leftrightarrow",
+      value: "\\colon$ ",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/uleftrightarrow.svg"
+      icon: "/assets/symbols/popular/colon.svg"
     }, {
       keyType: "operator",
-      value: "\\in",
+      value: ",",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/in.svg"
+      icon: "/assets/symbols/popular/comma.svg"
     }, {
       keyType: "operator",
-      value: "\\ni",
+      value: ".",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/ni.svg"
+      icon: "/assets/symbols/popular/period.svg"
     }, {
       keyType: "operator",
-      value: "\\notin",
+      value: "^\\circ$ ",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/notin.svg"
+      icon: "/assets/symbols/popular/circ.svg"
     }, {
       keyType: "operator",
-      value: "\\not\\ni",
+      value: "\'",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/not_ni.svg"
+      icon: "/assets/symbols/popular/prime.svg"
     }, {
       keyType: "operator",
-      value: "\\cup",
+      value: "\\mid$ ",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/cup.svg"
+      icon: "/assets/symbols/popular/mid.svg"
     }, {
       keyType: "operator",
-      value: "\\cap",
+      value: "\\infty$ ",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/cap.svg"
+      icon: "/assets/symbols/popular/infty.svg"
     }]
   }, {
     rowId: 3,
     keys: [{
       keyType: "operator",
-      value: "\\because",
+      value: "{@brown$x@grey$}@brown$^${@brown$a@grey$}@brown",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/because.svg"
+      icon: "/assets/symbols/popular/superscript.svg"
     }, {
       keyType: "operator",
-      value: "\\therefore",
+      value: "{@brown$x@grey$}@brown$_${@brown$a@grey$}@brown",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/therefore.svg"
+      icon: "/assets/symbols/popular/subscript.svg"
     }, {
       keyType: "operator",
-      value: "<",
+      value: "\\sqrt${@brown$x@grey$}@brown",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/less.svg"
+      icon: "/assets/symbols/popular/sqrt.svg"
     }, {
       keyType: "operator",
-      value: ">",
+      value: "\\sqrt$[@brown$n@grey$]@brown${@brown$x@grey$}@brown",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/gtr.svg"
+      icon: "/assets/symbols/popular/sqrt_n.svg"
     }, {
       keyType: "operator",
-      value: "\\leqslant",
+      value: "(",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/leqslant.svg"
+      icon: "/assets/symbols/popular/lparen.svg"
     }, {
       keyType: "operator",
-      value: "\\geqslant",
+      value: ")",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/geqslant.svg"
+      icon: "/assets/symbols/popular/rparen.svg"
     }, {
       keyType: "operator",
-      value: "\\neq",
+      value: "[",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/neq.svg"
+      icon: "/assets/symbols/popular/lbrack.svg"
     }, {
       keyType: "operator",
-      value: "=",
+      value: "]",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/equal.svg"
+      icon: "/assets/symbols/popular/rbrack.svg"
     }, {
-      keyType: "placeholder",
-      width: "two"
+      keyType: "operator",
+      value: "\\{",
+      width: "two",
+      icon: "/assets/symbols/popular/lbrace.svg"
     }, {
-      keyType: "placeholder",
-      width: "two"
+      keyType: "operator",
+      value: "\\}",
+      width: "two",
+      icon: "/assets/symbols/popular/rbrace.svg"
     }]
   }, {
     rowId: 4,
     keys: [{
       keyType: "operator",
-      value: "\\mathbb{N}",
+      value: "<",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/natural_numbers.svg"
+      icon: "/assets/symbols/popular/less.svg"
     }, {
       keyType: "operator",
-      value: "\\mathbb{Z}",
+      value: "\\leqslant$ ",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/integers.svg"
+      icon: "/assets/symbols/popular/leqslant.svg"
     }, {
       keyType: "operator",
-      value: "\\mathbb{Q}",
+      value: ">",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rational_numbers.svg"
+      icon: "/assets/symbols/popular/gtr.svg"
     }, {
       keyType: "operator",
-      value: "\\mathbb{R}",
+      value: "\\geqslant$ ",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/real_numbers.svg"
+      icon: "/assets/symbols/popular/geqslant.svg"
     }, {
       keyType: "operator",
-      value: "\\mathbb{C}",
+      value: "\\neq$ ",
       width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/complex_numbers.svg"
+      icon: "/assets/symbols/popular/neq.svg"
     }, {
-      keyType: "placeholder",
-      width: "two"
+      keyType: "operator",
+      value: "=",
+      width: "two",
+      icon: "/assets/symbols/popular/equal.svg"
     }, {
-      keyType: "placeholder",
-      width: "two"
+      keyType: "operator",
+      value: "\\approx$ ",
+      width: "two",
+      icon: "/assets/symbols/popular/approx.svg"
     }, {
-      keyType: "placeholder",
-      width: "two"
+      keyType: "operator",
+      value: "\\sim$ ",
+      width: "two",
+      icon: "/assets/symbols/popular/sim.svg"
     }, {
-      keyType: "placeholder",
-      width: "two"
+      keyType: "operator",
+      value: "\\cong$ ",
+      width: "two",
+      icon: "/assets/symbols/popular/cong.svg"
     }, {
-      keyType: "placeholder",
-      width: "two"
+      keyType: "operator",
+      value: "\\propto$ ",
+      width: "two",
+      icon: "/assets/symbols/popular/propto.svg"
+    }]
+  }, {
+    rowId: 5,
+    keys: [{
+      keyType: "operator",
+      value: "\\because$ ",
+      width: "two",
+      icon: "/assets/symbols/popular/because.svg"
+    }, {
+      keyType: "operator",
+      value: "\\therefore$ ",
+      width: "two",
+      icon: "/assets/symbols/popular/therefore.svg"
+    }, {
+      keyType: "operator",
+      value: "\\Rightarrow$ ",
+      width: "two",
+      icon: "/assets/symbols/popular/urightarrow.svg"
+    }, {
+      keyType: "operator",
+      value: "\\Leftrightarrow$ ",
+      width: "two",
+      icon: "/assets/symbols/popular/uleftrightarrow.svg"
+    }, {
+      keyType: "operator",
+      value: "\\overrightarrow${$AB@grey$}",
+      width: "two",
+      icon: "/assets/symbols/popular/overrightarrow.svg"
+    }, {
+      keyType: "operator",
+      value: "\\log$_${@brown$a@grey$}@brown${@brown$X@grey$}@brown",
+      width: "two",
+      icon: "/assets/symbols/popular/log.svg"
+    }, {
+      keyType: "operator",
+      value: "\\lim$_${@brown$\\Delta x \\to 0@grey$}@brown",
+      width: "two",
+      icon: "/assets/symbols/popular/lim.svg"
+    }, {
+      keyType: "operator",
+      value: "\\sum$_${@brown$i=1@grey$}@brown$^${@brown$n@grey$}@brown",
+      width: "two",
+      icon: "/assets/symbols/popular/sum.svg"
+    }, {
+      keyType: "operator",
+      value: "\\prod$_${@brown$i=1@grey$}@brown$^${@brown$n@grey$}@brown",
+      width: "two",
+      icon: "/assets/symbols/popular/prod.svg"
+    }, {
+      keyType: "operator",
+      value: "\\int$_${@brown$a@grey$}@brown$^${@brown$b@grey$}@brown",
+      width: "two",
+      icon: "/assets/symbols/popular/int.svg"
     }]
   }]
 }, {
@@ -496,105 +563,105 @@ const keyboards = [{
     rowId: 1,
     keys: [{
       keyType: "greek",
-      value: "\\alpha",
+      value: "\\alpha$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/alpha.svg"
     }, {
       keyType: "greek",
-      value: "\\beta",
+      value: "\\beta$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/beta.svg"
     }, {
       keyType: "greek",
-      value: "\\gamma",
+      value: "\\gamma$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/gamma.svg"
     }, {
       keyType: "greek",
-      value: "\\delta",
+      value: "\\delta$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/delta.svg"
     }, {
       keyType: "greek",
-      value: "\\epsilon",
+      value: "\\epsilon$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/epsilon.svg"
     }, {
       keyType: "greek",
-      value: "\\varepsilon",
+      value: "\\varepsilon$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/varepsilon.svg"
     }, {
       keyType: "greek",
-      value: "\\zeta",
+      value: "\\zeta$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/zeta.svg"
     }, {
       keyType: "greek",
-      value: "\\eta",
+      value: "\\eta$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/eta.svg"
     }, {
       keyType: "greek",
-      value: "\\theta",
+      value: "\\theta$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/theta.svg"
     }, {
-      keyType: "greek",
-      value: "\\vartheta",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/vartheta.svg"
+      keyType: "command",
+      name: "del",
+      value: "del",
+      width: "two"
     }]
   }, {
     rowId: 2,
     keys: [{
       keyType: "greek",
-      value: "\\iota",
+      value: "\\vartheta$ ",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/vartheta.svg"
+    }, {
+      keyType: "greek",
+      value: "\\iota$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/iota.svg"
     }, {
       keyType: "greek",
-      value: "\\kappa",
+      value: "\\kappa$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/kappa.svg"
     }, {
       keyType: "greek",
-      value: "\\lambda",
+      value: "\\lambda$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/lambda.svg"
     }, {
       keyType: "greek",
-      value: "\\mu",
+      value: "\\mu$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/mu.svg"
     }, {
       keyType: "greek",
-      value: "\\nu",
+      value: "\\nu$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/nu.svg"
     }, {
       keyType: "greek",
-      value: "\\xi",
+      value: "\\xi$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/xi.svg"
     }, {
       keyType: "greek",
-      value: "o",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/omicron.svg"
-    }, {
-      keyType: "greek",
-      value: "\\pi",
+      value: "\\pi$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/pi.svg"
     }, {
       keyType: "greek",
-      value: "\\varpi",
+      value: "\\varpi$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/varpi.svg"
     }, {
       keyType: "greek",
-      value: "\\rho",
+      value: "\\rho$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/rho.svg"
     }]
@@ -602,52 +669,52 @@ const keyboards = [{
     rowId: 3,
     keys: [{
       keyType: "greek",
-      value: "\\varrho",
+      value: "\\varrho$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/varrho.svg"
     }, {
       keyType: "greek",
-      value: "\\sigma",
+      value: "\\sigma$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/sigma.svg"
     }, {
       keyType: "greek",
-      value: "\\varsigma",
+      value: "\\varsigma$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/varsigma.svg"
     }, {
       keyType: "greek",
-      value: "\\tau",
+      value: "\\tau$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/tau.svg"
     }, {
       keyType: "greek",
-      value: "\\upsilon",
+      value: "\\upsilon$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/upsilon.svg"
     }, {
       keyType: "greek",
-      value: "\\phi",
+      value: "\\phi$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/phi.svg"
     }, {
       keyType: "greek",
-      value: "\\varphi",
+      value: "\\varphi$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/varphi.svg"
     }, {
       keyType: "greek",
-      value: "\\chi",
+      value: "\\chi$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/chi.svg"
     }, {
       keyType: "greek",
-      value: "\\psi",
+      value: "\\psi$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/psi.svg"
     }, {
       keyType: "greek",
-      value: "\\omega",
+      value: "\\omega$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/omega.svg"
     }]
@@ -655,65 +722,60 @@ const keyboards = [{
     rowId: 4,
     keys: [{
       keyType: "greek",
-      value: "\\Gamma",
+      value: "\\Gamma$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/ugamma.svg"
     }, {
       keyType: "greek",
-      value: "\\Delta",
+      value: "\\Delta$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/udelta.svg"
     }, {
       keyType: "greek",
-      value: "\\Theta",
+      value: "\\Theta$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/utheta.svg"
     }, {
       keyType: "greek",
-      value: "\\Lambda",
+      value: "\\Lambda$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/ulambda.svg"
     }, {
       keyType: "greek",
-      value: "\\Xi",
+      value: "\\Xi$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/uxi.svg"
     }, {
       keyType: "greek",
-      value: "O",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/uomicron.svg"
-    }, {
-      keyType: "greek",
-      value: "\\Pi",
+      value: "\\Pi$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/upi.svg"
     }, {
       keyType: "greek",
-      value: "\\Sigma",
+      value: "\\Sigma$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/usigma.svg"
     }, {
       keyType: "greek",
-      value: "\\Upsilon",
+      value: "\\Upsilon$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/uupsilon.svg"
     }, {
       keyType: "greek",
-      value: "\\Phi",
+      value: "\\Phi$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/uphi.svg"
+    }, {
+      keyType: "greek",
+      value: "\\Psi$ ",
+      width: "two",
+      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/upsi.svg"
     }]
   }, {
     rowId: 5,
     keys: [{
       keyType: "greek",
-      value: "\\Psi",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/upsi.svg"
-    }, {
-      keyType: "greek",
-      value: "\\Omega",
+      value: "\\Omega$ ",
       width: "two",
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/uomega.svg"
     }, {
@@ -721,6 +783,9 @@ const keyboards = [{
       width: "three"
     }, {
       keyType: "placeholder",
+      width: "three"
+    }, {
+      keyType: "placeholder",
       width: "two"
     }, {
       keyType: "placeholder",
@@ -737,208 +802,6 @@ const keyboards = [{
     }, {
       keyType: "placeholder",
       width: "three"
-    }]
-  }]
-}, {
-  name: "set_theory",
-  displayName: "集合",
-  rows: [{
-    rowId: 1,
-    keys: [{
-      keyType: "operator",
-      value: "\\varnothing",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/varnothing.svg"
-    }, {
-      keyType: "operator",
-      value: "\\{",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/lbrace.svg"
-    }, {
-      keyType: "operator",
-      value: "\\}",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rbrace.svg"
-    }, {
-      keyType: "operator",
-      value: "[",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/lbrack.svg"
-    }, {
-      keyType: "operator",
-      value: "]",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rbrack.svg"
-    }, {
-      keyType: "operator",
-      value: "(",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/lparen.svg"
-    }, {
-      keyType: "operator",
-      value: ")",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rparen.svg"
-    }, {
-      keyType: "operator",
-      value: "\\mid",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/mid.svg"
-    }, {
-      keyType: "operator",
-      value: ",",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/comma.svg"
-    }, {
-      keyType: "operator",
-      value: "\\cdots",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/cdots.svg"
-    }]
-  }, {
-    rowId: 2,
-    keys: [{
-      keyType: "operator",
-      value: "\\forall",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/forall.svg"
-    }, {
-      keyType: "operator",
-      value: "\\exists",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/exists.svg"
-    }, {
-      keyType: "operator",
-      value: "\\Rightarrow",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/urightarrow.svg"
-    }, {
-      keyType: "operator",
-      value: "\\Leftrightarrow",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/uleftrightarrow.svg"
-    }, {
-      keyType: "operator",
-      value: "\\in",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/in.svg"
-    }, {
-      keyType: "operator",
-      value: "\\ni",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/ni.svg"
-    }, {
-      keyType: "operator",
-      value: "\\notin",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/notin.svg"
-    }, {
-      keyType: "operator",
-      value: "\\not\\ni",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/not_ni.svg"
-    }, {
-      keyType: "operator",
-      value: "\\cup",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/cup.svg"
-    }, {
-      keyType: "operator",
-      value: "\\cap",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/cap.svg"
-    }]
-  }, {
-    rowId: 3,
-    keys: [{
-      keyType: "operator",
-      value: "\\because",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/because.svg"
-    }, {
-      keyType: "operator",
-      value: "\\therefore",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/therefore.svg"
-    }, {
-      keyType: "operator",
-      value: "<",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/less.svg"
-    }, {
-      keyType: "operator",
-      value: ">",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/gtr.svg"
-    }, {
-      keyType: "operator",
-      value: "\\leqslant",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/leqslant.svg"
-    }, {
-      keyType: "operator",
-      value: "\\geqslant",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/geqslant.svg"
-    }, {
-      keyType: "operator",
-      value: "\\neq",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/neq.svg"
-    }, {
-      keyType: "operator",
-      value: "=",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/equal.svg"
-    }, {
-      keyType: "placeholder",
-      width: "two"
-    }, {
-      keyType: "placeholder",
-      width: "two"
-    }]
-  }, {
-    rowId: 4,
-    keys: [{
-      keyType: "operator",
-      value: "\\mathbb{N}",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/natural_numbers.svg"
-    }, {
-      keyType: "operator",
-      value: "\\mathbb{Z}",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/integers.svg"
-    }, {
-      keyType: "operator",
-      value: "\\mathbb{Q}",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/rational_numbers.svg"
-    }, {
-      keyType: "operator",
-      value: "\\mathbb{R}",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/real_numbers.svg"
-    }, {
-      keyType: "operator",
-      value: "\\mathbb{C}",
-      width: "two",
-      icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/set_theory/complex_numbers.svg"
-    }, {
-      keyType: "placeholder",
-      width: "two"
-    }, {
-      keyType: "placeholder",
-      width: "two"
-    }, {
-      keyType: "placeholder",
-      width: "two"
-    }, {
-      keyType: "placeholder",
-      width: "two"
-    }, {
-      keyType: "placeholder",
-      width: "two"
     }]
   }]
 }, {

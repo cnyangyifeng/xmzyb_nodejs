@@ -333,6 +333,13 @@ Page({
           })
         }
         break
+      case '+':
+      case '-':
+      case '=':
+      case '^':
+      case '_':
+        this.buildBlocks(value, 'orange')
+        break
       default:
         this.buildBlocks(value, 'brown')
         break
@@ -697,30 +704,37 @@ Page({
       // 否则，正常输出 code 为 key
       code = key
     }
-    // 准备新 block
-    const item = {
-      wxKey: new Date().getTime(),
-      blockType: 'regular',
-      value: code,
-      color: color,
-      backgroundColor: 'grey'
+    // 为新 blocks 准备 color-value pairs
+    const coloredValues = code.split('$')
+    const items = []
+    for (let i = 0; i < coloredValues.length; i++) {
+      // 获取一组 color-value pair
+      const cvpair = coloredValues[i].split('@')
+      // 添加新的 blocks
+      items.push({
+        wxKey: new Date().getTime(),
+        blockType: 'regular',
+        value: cvpair[0],
+        color: cvpair[1] ? cvpair[1] : color,
+        backgroundColor: 'none'
+      })
     }
     const blocks = this.data.note.blocks
     let cursorId = this.data.note.cursorId
     if (this.data.inlineEditing) {
       // 如果当前处于 inline 编辑模式，使用新的 block 替换光标之前的原 block
-      blocks[cursorId - 1] = item
+      blocks[cursorId - 1] = items[0]
     } else {
-      // 否则，在光标之前插入新的 block
+      // 否则，在光标之前插入新的 blocks
       // 取消 block 高亮效果
       if (cursorId > 0) {
         blocks[cursorId - 1].backgroundColor = 'none'
       }
-      // 插入新 block
-      blocks.splice(cursorId, 0, item)
-      // 更新光标位置：后移一位
-      cursorId++
-      // 添加 block 高亮效果
+      // 插入新 blocks
+      blocks.splice(cursorId, 0, ...items)
+      // 更新光标位置：后移 items.length 位
+      cursorId += items.length
+      // 为最后一个 block 添加高亮效果
       if (cursorId > 0) {
         blocks[cursorId - 1].backgroundColor = 'grey'
       }

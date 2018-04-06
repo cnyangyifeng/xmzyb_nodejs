@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>less</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="numbers,-letters,-operators" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="less" fill="#000000" fill-rule="nonzero">
+            <g transform="translate(5.000000, 6.000000)" id="g0-60">
+                <path d="M15.147787,2.647604 C15.568034,2.460815 15.614816,2.297304 15.614816,2.157184 C15.614816,1.900448 15.428027,1.713659 15.171178,1.713659 C15.124396,1.713659 15.101118,1.736937 14.774209,1.877057 L2.1425944,7.6908618 C1.7223135,7.8776508 1.6756219,8.0410827 1.6756219,8.1811801 C1.6756219,8.3446233 1.6989677,8.4847094 2.1425944,8.6948555 L14.774209,14.5086637 C15.077727,14.6487554 15.124396,14.6721046 15.171178,14.6721046 C15.428027,14.6721046 15.614816,14.4853145 15.614816,14.2284802 C15.614816,14.088388 15.568034,13.9249474 15.147787,13.7381585 L3.123231,8.2045259 L15.147787,2.647604 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>
