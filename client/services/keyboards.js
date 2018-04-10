@@ -50,7 +50,7 @@ const keyboards = [{
       width: "two"
     }, {
       keyType: "command",
-      name: "del",
+      name: "删除",
       value: "del",
       width: "two"
     }]
@@ -237,7 +237,7 @@ const keyboards = [{
     rowId: 5,
     keys: [{
       keyType: "caps",
-      name: "caps",
+      name: "大写",
       width: "three"
     }, {
       keyType: "letter",
@@ -339,7 +339,7 @@ const keyboards = [{
       icon: "/assets/symbols/popular/percent.svg"
     }, {
       keyType: "command",
-      name: "del",
+      name: "删除",
       value: "del",
       width: "two"
     }]
@@ -608,7 +608,7 @@ const keyboards = [{
       icon: "https://xmzyb-1256150559.cos.ap-guangzhou.myqcloud.com/system_data/symbols/greeks/theta.svg"
     }, {
       keyType: "command",
-      name: "del",
+      name: "删除",
       value: "del",
       width: "two"
     }]

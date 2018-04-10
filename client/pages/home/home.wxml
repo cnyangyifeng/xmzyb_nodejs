@@ -66,7 +66,7 @@
       <button class="actionbar-btn {{note.noteImageData?'send':'send-disabled'}}" open-type="share">
         <image class="actionbar-btn-icon" src="/assets/images/send{{note.noteImageData?'':'_disabled'}}.svg"></image>
       </button>
-      <view class="actionbar-btn space {{appMode}}" hover-class="space-hover" bindtap="spaceButtonTap">space</view>
+      <view class="actionbar-btn space {{appMode}}" hover-class="space-hover" bindtap="spaceButtonTap">空格</view>
       <view class="actionbar-btn {{note.blocks.length>1?'refresh':'refresh-disabled'}}" hover-class="{{note.blocks.length>1?'refresh-hover':''}}" bindtap="refreshButtonTap">
         <image class="actionbar-btn-icon" src="/assets/images/refresh{{note.blocks.length>1?'':'_disabled'}}.svg"></image>
       </view>

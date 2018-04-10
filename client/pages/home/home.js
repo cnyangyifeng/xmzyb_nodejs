@@ -319,7 +319,7 @@ Page({
     const name = e.currentTarget.dataset.name
     const value = e.currentTarget.dataset.value
     console.log(`点击 commandKey: `, name, value)
-    switch (name) {
+    switch (value) {
       case 'del':
         this.deleteBlock()
         break
