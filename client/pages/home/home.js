@@ -60,7 +60,7 @@ Page({
     // 从 URL 中读取 note_id 参数，更新页面数据 note
     const noteId = options.note_id
     if (noteId) {
-      console.log(`初始 note id: `, options.note_id)
+      console.log(`初始 note id: `, noteId)
       this.requestNote(noteId)
     } else {
       // 更新页面数据 note
